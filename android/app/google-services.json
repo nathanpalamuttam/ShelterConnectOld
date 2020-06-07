@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "682079821400",
+    "firebase_url": "https://shelterconnect-real.firebaseio.com",
+    "project_id": "shelterconnect-real",
+    "storage_bucket": "shelterconnect-real.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682079821400:android:f744660c9226fcf771f42d",
+        "android_client_info": {
+          "package_name": "ShelterConnect.flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682079821400-66noh9aa48ogve12fsjso3ctjmudh9rc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ShelterConnect.flutter_app",
+            "certificate_hash": "fcaeb3841046ddf64fbaa19fa2c8bd7ff70fabf4"
+          }
+        },
+        {
+          "client_id": "682079821400-i3qdrdhnifc4iclphc90n3upjgad9lju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtrYoJ4vDb6DwdB67DdrqvAkS_oPNldRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682079821400-i3qdrdhnifc4iclphc90n3upjgad9lju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
