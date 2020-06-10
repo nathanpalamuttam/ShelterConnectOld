@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import './login_page.dart';
 import './sign_in.dart';
-
-
 class FirstScreen extends StatelessWidget {
   @override
+  String imageUrl = 'ur mum';
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -67,7 +66,7 @@ class FirstScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Log Out',
+                    'Sign Out',
                     style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
                 ),
