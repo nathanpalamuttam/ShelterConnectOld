@@ -1,0 +1,86 @@
+import 'package:flutter/material.dart';
+import '../constants.dart';
+import '../sign_in.dart';
+
+class FirstScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue[400],
+      body: Container(
+        // decoration: BoxDecoration(
+          // gradient: LinearGradient(
+          //   begin: Alignment.topCenter,
+          //   end: Alignment.bottomCenter,
+          // ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    imageUrl,
+                  ),
+                  radius: 60,
+                  backgroundColor: Colors.transparent,
+                ),
+                SizedBox(height: 40),
+                Text(
+                  getGreeting(),
+                  style: TextStyle(
+                      fontSize: 27,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+                SizedBox(height: 40, width: 30),
+                Center(child: Text(
+                  'You are logged in with $email',
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                )),
+                SizedBox(height: 40),
+                BlueButton('Set Up User Type', '/route_selection'),
+
+                SizedBox(height: 40),
+                
+                RaisedButton(
+                  onPressed: () {
+                    signOutGoogle();
+                    Navigator.pushNamed(context, '/login');
+                  },
+                  color: Colors.deepPurple,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Sign Out',
+                      style: TextStyle(fontSize: 25, color: Colors.white),
+                    ),
+                  ),
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40)),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+String getGreeting() {
+  var hour = new DateTime.now().hour;
+  if (hour < 12) {
+    return 'Good Morning, $name';
+  }
+  if (hour < 17) {
+    return 'Good Afternoon, $name';
+  }
+  return 'Good Evening, $name';
+}
