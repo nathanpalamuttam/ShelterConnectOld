@@ -1,4 +1,4 @@
-package ShelterConnect.flutter_app
+package shelter_connect.flutter_app
 
 import io.flutter.embedding.android.FlutterActivity
 
