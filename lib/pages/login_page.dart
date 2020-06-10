@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../constants.dart';
+
+import '../components/sign_in_button.dart';
+import'../sign_in.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -54,7 +56,14 @@ class LoginPage extends StatelessWidget {
                       ),
                       ),
                       SizedBox(height: 30.0),
-                      SigninButton('Sign in with Google', '/route_selection'),
+                      SignInButton(
+                        text: 'Sign in with Google',
+                        onPressed: () {
+                          signInWithGoogle().whenComplete(() {
+                            Navigator.pushNamed(context, '/route_selection');
+                          });
+                        },
+                      ),
                     ]),
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+
+import '../components/action_button.dart';
 
 
 class RouteSelectionPage extends StatelessWidget {
@@ -23,9 +24,15 @@ class RouteSelectionPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Spacer(flex: 4),
-            BlueButton('Shelter', '/shelter'),
+            ActionButton(
+              text: 'Shelter',
+              onPressed: () => Navigator.pushNamed(context, '/shelter'),
+            ),
             Spacer(flex: 1),
-            BlueButton('Volunteer', '/volunteer'),
+            ActionButton(
+              text: 'Volunteer',
+              onPressed: () => Navigator.pushNamed(context, '/volunteer'),
+            ),
             Spacer(flex: 4),
           ]
         ),

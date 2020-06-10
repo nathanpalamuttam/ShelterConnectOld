@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+
+import '../components/action_button.dart';
 import '../sign_in.dart';
 
-class FirstScreen extends StatelessWidget {
+class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +45,10 @@ class FirstScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 )),
                 SizedBox(height: 40),
-                BlueButton('Set Up User Type', '/route_selection'),
+                ActionButton(
+                  text: 'Set Up User Type',
+                  onPressed: () => Navigator.pushNamed(context, '/route_selection')
+                ),
 
                 SizedBox(height: 40),
                 
