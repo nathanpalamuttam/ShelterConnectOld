@@ -9,7 +9,7 @@ class VolunteerRoute extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             onPressed: () {
-              (Navigator.pop(context));
+              Navigator.pop(context);
             },
             icon: Icon(Icons.arrow_left),
           )

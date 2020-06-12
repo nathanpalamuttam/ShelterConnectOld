@@ -12,11 +12,11 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light, 
-              child: GestureDetector(
-                onTap: () => FocusScope.of(context).unfocus(),
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Stack(
-          children: <Widget>[
-            Container(
+            children: <Widget>[
+              Container(
                 height: double.infinity,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -36,8 +36,8 @@ class LoginPage extends StatelessWidget {
                     stops: [0.1, 0.4, 0.7, 0.9],
                   ),
                 ),
-            ),
-            Container(
+              ),
+              Container(
                 height: double.infinity,
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
@@ -48,12 +48,13 @@ class LoginPage extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text('Sign In',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      Text(
+                        'Sign In',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       SizedBox(height: 30.0),
                       SignInButton(
@@ -64,10 +65,14 @@ class LoginPage extends StatelessWidget {
                           });
                         },
                       ),
-                    ]),
+                    ]
+                  ),
                 ),
               ),
-      ]))),
+            ]
+          )
+        )
+      ),
     );
   }
 }
