@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../components/action_button.dart';
-import '../components/route_info_popup.dart';
+import '../components/info_button.dart';
 import '../constants.dart';
 
 class RouteSelectionPage extends StatelessWidget {
