@@ -1,35 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
-class ShelterRoute extends StatelessWidget {
-  Completer<GoogleMapController> _controller = Completer();
+import 'package:geolocator/geolocator.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+class ShelterRoute extends StatefulWidget {
+    @override
+  _ShelterRouteState createState() => _ShelterRouteState();
+}
 
-  static const LatLng _center = const LatLng(45.521563, -122.677433);
+class _ShelterRouteState extends State<ShelterRoute> {
 
-  void _onMapCreated(GoogleMapController controller) {
-    _controller.complete(controller);}
+  GoogleMapController _controller;
+  String searchAddr;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Shelter Route"),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () {
-              (Navigator.pop(context));
-            },
-            icon: Icon(Icons.arrow_left),
+              ),
+      body: Stack (
+        children: <Widget>[
+          GoogleMap(
+            onMapCreated: onMapCreated,
+            initialCameraPosition: CameraPosition(target: LatLng(40.6782, -73.9442), zoom: 14.0),
+            mapType: MapType.normal,
 
-          )
-        ],
-      ),
-      body: GoogleMap(
-        onMapCreated: _onMapCreated,
-        initialCameraPosition: CameraPosition(
-          target: _center,
-          zoom: 11.0,
-        ),
-      ),
-    );
+            )
+          ]),
+      );
+
+  }
+  void onMapCreated(GoogleMapController controller){
+    setState(() {
+      _controller = controller;
+    });
   }
 }

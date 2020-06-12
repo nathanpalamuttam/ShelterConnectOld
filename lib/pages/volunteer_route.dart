@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class VolunteerRoute extends StatelessWidget {
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -15,7 +16,7 @@ class VolunteerRoute extends StatelessWidget {
           )
         ],
       ),
-      
+
     );
   }
 }

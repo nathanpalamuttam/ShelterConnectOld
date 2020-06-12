@@ -4,7 +4,7 @@ import 'pages/shelter_route.dart';
 import 'pages/route_selection_page.dart';
 import 'pages/volunteer_route.dart';
 import 'pages/login_page.dart';
-
+import 'pages/google_maps_routes.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/route_selection': (context) => RouteSelectionPage(),
         '/volunteer': (context) => VolunteerRoute(),
         '/shelter': (context) => ShelterRoute(),
+        '/google_maps_routes': (context) => MapPage(),
 
       },
     );
