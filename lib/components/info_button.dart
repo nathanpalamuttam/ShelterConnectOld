@@ -27,43 +27,53 @@ class InfoButton extends StatelessWidget {
 
   void _routeInfoModalBottomSheet(BuildContext context) {
     showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Container(
-          height: MediaQuery.of(context).size.height * 0.6,
-          child: Padding(
-            padding: EdgeInsets.all(25.0),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Text(title), // TODO: style text
-                    Spacer(),
-                    IconButton(
-                      icon: Icon(
-                        Icons.cancel,
-                        color: Colors.orange,
-                        size: 25,
+        shape:
+            RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40.0),
+            topRight: Radius.circular(40.0),
+          ),
+        ),
+        context: context,
+        builder: (BuildContext bc) {
+          return Container(
+              height: MediaQuery.of(context).size.height * 0.6,
+              child: Padding(
+                  padding: EdgeInsets.all(25.0),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Text(
+                            title,
+                            style: TextStyle(fontSize: 30.0),
+                          ),
+                          Spacer(),
+                          IconButton(
+                            icon: Icon(
+                              Icons.cancel,
+                              color: Colors.grey,
+                              size: 25,
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          )
+                        ],
                       ),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    )
-                  ],
-                ),
-                // TODO: style text
-                Spacer(),
-                Text(infoText),
-                Spacer(flex: 4),
-                ActionButton(
-                  text: buttonText,
-                  onPressed: () => Navigator.pushNamed(context, buttonRoute),
-                ),
-              ],
-            )
-          )
-        );
-      }
-    );
+                      Spacer(),
+                      Text(
+                        infoText,
+                        style: TextStyle(fontSize: 20.0),
+                      ),
+                      Spacer(flex: 4),
+                      ActionButton(
+                        text: buttonText,
+                        onPressed: () =>
+                            Navigator.pushNamed(context, buttonRoute),
+                      ),
+                    ],
+                  )));
+        });
   }
 }
