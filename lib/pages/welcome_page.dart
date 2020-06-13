@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/components/login_page_buttons.dart';
 
-class LoginorSignin extends StatefulWidget {
+class WelcomePage extends StatefulWidget {
   @override
-  _LoginorSigninState createState() => _LoginorSigninState();
+  _WelcomePageState createState() => _WelcomePageState();
 }
 
-class _LoginorSigninState extends State<LoginorSignin> {
+class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,10 +29,6 @@ class _LoginorSigninState extends State<LoginorSignin> {
                             Color(0xFF2E8FFF),
                             Color(0xFF1672DB),
                             Color(0xFF025BC2),
-                            // Color(0xFF73AEF5),
-                            // Color(0xFF61A4F1),
-                            // Color(0xFF478DE0),
-                            // Color(0xFF398AE5),
                           ],
                           stops: [0.1, 0.4, 0.7, 0.9],
                         ),

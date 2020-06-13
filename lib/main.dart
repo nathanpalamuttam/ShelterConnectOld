@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/create_account_page.dart';
-import 'package:flutter_app/pages/home_page.dart';
-import 'package:flutter_app/pages/settings.dart';
-import 'package:flutter_app/pages/signin_or_login_page.dart';
-import 'package:flutter_app/pages/signin_page.dart';
-import 'package:flutter_app/pages/splash_screen.dart';
-import 'pages/profile_page.dart';
-import 'pages/shelter_route.dart';
-import 'pages/route_selection_page.dart';
-import 'pages/volunteer_route.dart';
+
+import 'pages/create_account_page.dart';
+import 'pages/home_page.dart';
 import 'pages/login_page.dart';
+import 'pages/profile_page.dart';
+import 'pages/route_selection_page.dart';
+import 'pages/settings.dart';
+import 'pages/shelter_route.dart';
+import 'pages/signin_page.dart';
+import 'pages/splash_screen.dart';
+import 'pages/volunteer_route.dart';
+import 'pages/welcome_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/login_or_signin_page',
+      initialRoute: '/welcome_page',
       routes: {
         '/login': (context) => LoginPage(),
         '/profile': (context) => ProfilePage(),
@@ -32,10 +33,7 @@ class MyApp extends StatelessWidget {
         '/home_page': (context) => HomePage(),
         '/settings': (context) => SettingsPage(),
         '/splash_screen': (context) => SplashScreen(),
-        '/login_or_signin_page': (context) => LoginorSignin(),
-        
-
-
+        '/welcome_page': (context) => WelcomePage(),
       },
     );
   }

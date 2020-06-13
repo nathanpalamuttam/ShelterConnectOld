@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:flutter_app/pages/signin_or_login_page.dart';
+import 'package:flutter_app/pages/welcome_page.dart';
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
       Duration(seconds: 3),
       (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginorSignin()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomePage()));
       },
       );
   }
