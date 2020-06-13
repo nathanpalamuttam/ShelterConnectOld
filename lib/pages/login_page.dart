@@ -86,7 +86,8 @@ class _LoginPageState extends State<LoginPage> {
                 RoundedButton(
                   text: 'LOGIN',
                   onPressed: () {
-                    //TODO
+                    var res = auth.signInWithEmailAndPassword(email: email, password: password);
+                    print('Login successful!');
                   },
                 ),
               ]

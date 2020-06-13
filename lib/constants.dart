@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 //Firebase
 final FirebaseAuth auth = FirebaseAuth.instance;
+final Firestore db = Firestore.instance;
 
 //Colors
 final Color shelterGreen = Color(0xFF39B54A);

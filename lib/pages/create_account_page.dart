@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/login_page_buttons.dart';
+import 'package:flutter_app/components/no_action_alert.dart';
 import 'package:flutter_app/constants.dart';
 
 class Account extends StatefulWidget {
@@ -9,6 +10,7 @@ class Account extends StatefulWidget {
 
 class _AccountState extends State<Account> {
   String name, email, password, reEnteredPassword;
+  TextEditingController reEnteredPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,7 @@ class _AccountState extends State<Account> {
                 ),
                 SizedBox(height: 20.0),
                 RoundedTextField(
+                  controller: reEnteredPasswordController,
                   labelText: 'Re-enter Password',
                   icon: Icons.lock,
                   onChanged: (val) {
@@ -72,10 +75,25 @@ class _AccountState extends State<Account> {
                   text: 'CREATE ACCOUNT',
                   onPressed: () async {
                     if (password != reEnteredPassword) {
-                      //TODO
+                      showDialog(
+                        context: context,
+                        builder: (_) => NoActionAlert(title: 'The passwords you entered did not match, please try again.')
+                      );
+                      reEnteredPasswordController.clear();
                     }
                     else {
-                      //TODO
+                      try {
+                        var res = await auth.createUserWithEmailAndPassword(email: email, password: password);
+                        db.collection('users').document(res.user.uid).setData({
+                          'name': name,
+                          'email': email,
+                        });
+                      } catch(e) {
+                        showDialog(
+                            context: context,
+                            builder: (_) => NoActionAlert(title: 'Invalid email')
+                        );
+                      }
                     }
                   }
                 ),
