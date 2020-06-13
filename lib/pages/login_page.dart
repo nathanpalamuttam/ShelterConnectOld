@@ -3,20 +3,25 @@ import 'package:flutter/services.dart';
 
 import '../components/sign_in_button.dart';
 import'../sign_in.dart';
+import 'package:flutter_app/components/login_page_buttons.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light, 
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+              child: GestureDetector(
+                onTap: () => FocusScope.of(context).unfocus(),
           child: Stack(
-            children: <Widget>[
-              Container(
+          children: <Widget>[
+            Container(
                 height: double.infinity,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -36,57 +41,60 @@ class LoginPage extends StatelessWidget {
                     stops: [0.1, 0.4, 0.7, 0.9],
                   ),
                 ),
-              ),
-              Container(
+            ),
+            Container(
                 height: double.infinity,
                 child: SingleChildScrollView(
-                  physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 40.0,
-                    vertical: 120.0,
+                    vertical: 200.0,
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
-                        'Sign In',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: Text('Login',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          ),
                       ),
+
                       SizedBox(height: 30.0),
-                      SignInButton(
-                        text: 'Sign in with Google',
-                        onPressed: () {
-                          signInWithGoogle().whenComplete(() {
-                            Navigator.pushNamed(context, '/route_selection');
-                          });
-                        },
-                      ),
-                    ]
-                  ),
+                      EmailText('Email:'),
+                      SizedBox(height: 20.0,),
+                      PasswordText('Password:'),
+                      ForgotPassword('Forgot Password?'),
+                      SizedBox(height: 1),
+                      RememberMe(),
+                      SizedBox(height: 1),
+                      LoginButton('LOGIN', ''),
+                      
+                    ]),
                 ),
               ),
-            ]
-          )
-        )
-      ),
+      ]))),
     );
   }
+
 }
-// class LoginPage extends StatefulWidget {
-//  @override
+
+
+// class LoginPage extends StatelessWidget {
+//   @override
+
+//   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       body: AnnotatedRegion<SystemUiOverlayStyle>(
 //         value: SystemUiOverlayStyle.light, 
-//               child: GestureDetector(
-//                 onTap: () => FocusScope.of(context).unfocus(),
+//         child: GestureDetector(
+//           onTap: () => FocusScope.of(context).unfocus(),
 //           child: Stack(
-//           children: <Widget>[
-//             Container(
+//             children: <Widget>[
+//               Container(
 //                 height: double.infinity,
 //                 width: double.infinity,
 //                 decoration: BoxDecoration(
@@ -106,8 +114,8 @@ class LoginPage extends StatelessWidget {
 //                     stops: [0.1, 0.4, 0.7, 0.9],
 //                   ),
 //                 ),
-//             ),
-//             Container(
+//               ),
+//               Container(
 //                 height: double.infinity,
 //                 child: SingleChildScrollView(
 //                   physics: AlwaysScrollableScrollPhysics(),
@@ -118,31 +126,32 @@ class LoginPage extends StatelessWidget {
 //                   child: Column(
 //                     mainAxisAlignment: MainAxisAlignment.center,
 //                     children: <Widget>[
-//                       Text('Sign In',
-//                       style: TextStyle(
-//                         color: Colors.white,
-//                         fontSize: 30.0,
-//                         fontWeight: FontWeight.bold,
-//                       ),
+//                       Text(
+//                         'Sign In',
+//                         style: TextStyle(
+//                           color: Colors.white,
+//                           fontSize: 30.0,
+//                           fontWeight: FontWeight.bold,
+//                         ),
 //                       ),
 //                       SizedBox(height: 30.0),
-//                       EmailText('Email:'),
-//                       SizedBox(height: 20.0,),
-//                       PasswordText('Password:'),
-//                       ForgotPassword('Forgot Password?'),
-//                       SizedBox(height: 1),
-//                       Rememberme(),
-//                       SizedBox(height: 1),
-//                       LoginButton('LOGIN'),
-//                       SignInWith(),
-//                       LoginRow(),
-//                       SizedBox(),
-//                       SignUp(),
-                      
-//                     ]),
+//                       SignInButton(
+//                         text: 'Sign in with Google',
+//                         onPressed: () {
+//                           signInWithGoogle().whenComplete(() {
+//                             Navigator.pushNamed(context, '/route_selection');
+//                           });
+//                         },
+//                       ),
+//                     ]
+//                   ),
 //                 ),
 //               ),
-//       ]))),
+//             ]
+//           )
+//         )
+//       ),
 //     );
 //   }
+// }
 
