@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_app/components/login_page_buttons.dart';
 
+import '../constants.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -23,21 +25,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: double.infinity,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFF3B96FF),
-                      Color(0xFF2E8FFF),
-                      Color(0xFF1672DB),
-                      Color(0xFF025BC2),
-                      // Color(0xFF73AEF5),
-                      // Color(0xFF61A4F1),
-                      // Color(0xFF478DE0),
-                      // Color(0xFF398AE5),
-                    ],
-                    stops: [0.1, 0.4, 0.7, 0.9],
-                  ),
+                  gradient: blueGradient,
                 ),
             ),
             Container(
@@ -87,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       body: AnnotatedRegion<SystemUiOverlayStyle>(
-//         value: SystemUiOverlayStyle.light, 
+//         value: SystemUiOverlayStyle.light,
 //         child: GestureDetector(
 //           onTap: () => FocusScope.of(context).unfocus(),
 //           child: Stack(

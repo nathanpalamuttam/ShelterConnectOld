@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/login_page_buttons.dart';
+import '../constants.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -13,17 +14,7 @@ class _WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFF3B96FF),
-              Color(0xFF2E8FFF),
-              Color(0xFF1672DB),
-              Color(0xFF025BC2),
-            ],
-            stops: [0.1, 0.4, 0.7, 0.9],
-          ),
+          gradient: blueGradient,
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
