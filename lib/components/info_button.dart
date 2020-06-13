@@ -27,6 +27,13 @@ class InfoButton extends StatelessWidget {
 
   void _routeInfoModalBottomSheet(BuildContext context) {
     showModalBottomSheet(
+        shape:
+            RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40.0),
+            topRight: Radius.circular(40.0),
+          ),
+        ),
         context: context,
         builder: (BuildContext bc) {
           return Container(
@@ -37,12 +44,15 @@ class InfoButton extends StatelessWidget {
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          Text(title), // TODO: style text
+                          Text(
+                            title,
+                            style: TextStyle(fontSize: 30.0),
+                          ),
                           Spacer(),
                           IconButton(
                             icon: Icon(
                               Icons.cancel,
-                              color: Colors.orange,
+                              color: Colors.grey,
                               size: 25,
                             ),
                             onPressed: () {
@@ -51,9 +61,11 @@ class InfoButton extends StatelessWidget {
                           )
                         ],
                       ),
-                      // TODO: style text
                       Spacer(),
-                      Text(infoText),
+                      Text(
+                        infoText,
+                        style: TextStyle(fontSize: 20.0),
+                      ),
                       Spacer(flex: 4),
                       ActionButton(
                         text: buttonText,
