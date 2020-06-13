@@ -25,13 +25,14 @@ class _SignUpPageState extends State<SignUpPage> {
             children: <Widget>[
               Container(
                 alignment: Alignment.topLeft,
-                child: Text('Create a ShelterConnect Account',
+                child: Text(
+                  'Create a ShelterConnect Account',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
                   ),
-                  ),
+                ),
               ),
               SizedBox(height: 10.0),
               RoundedButton(
@@ -58,23 +59,23 @@ class _SignUpPageState extends State<SignUpPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   RoundImageButton(
-                      image: AssetImage('assets/google_logo.png'),
-                      onPressed: () {
-                        //TODO
-                      }
+                    image: AssetImage('assets/google_logo.png'),
+                    onPressed: () {
+                      //TODO
+                    }
                   ),
                   RoundImageButton(
                     image: AssetImage('assets/facebooklogo2.png'),
                     onPressed: () {
                       //TODO
-                    }
-                  )
+                    },
+                  ),
                 ],
               ),
-            ]
+            ],
           ),
         ),
-      )
+      ),
     );
   }
 }

@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: 30.0),
                 RoundedTextField(
-                  hintText: 'Email',
+                  labelText: 'Email',
                   icon: Icons.email,
                   onChanged: (val) {
                     email = val;
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: 20.0),
                 RoundedTextField(
-                  hintText: 'Password',
+                  labelText: 'Password',
                   icon: Icons.lock,
                   obscureText: true,
                   onChanged: (val) {
