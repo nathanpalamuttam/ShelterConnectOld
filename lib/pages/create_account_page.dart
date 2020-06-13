@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/login_page_buttons.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/constants.dart';
 
 class Account extends StatefulWidget {
   @override
@@ -21,21 +22,7 @@ class _AccountState extends State<Account> {
                       height: double.infinity,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Color(0xFF3B96FF),
-                            Color(0xFF2E8FFF),
-                            Color(0xFF1672DB),
-                            Color(0xFF025BC2),
-                            // Color(0xFF73AEF5),
-                            // Color(0xFF61A4F1),
-                            // Color(0xFF478DE0),
-                            // Color(0xFF398AE5),
-                          ],
-                          stops: [0.1, 0.4, 0.7, 0.9],
-                        ),
+                        gradient: blueGradient,
                       ),
                     ),
                     Container(
@@ -59,12 +46,17 @@ class _AccountState extends State<Account> {
                               ),
                               SizedBox(height: 30.0),
                               AccountName('Name'),
-                              EmailText('Email'),
-                              PasswordText('Password'),
+//                              EmailText('Email'),
+//                              PasswordText('Password'),
                               ReenterPassword('Re-enter Password'),
                               SizedBox(height: 1),
                               SizedBox(height: 1),
-                              LoginButton('CREATE ACCOUNT', ''),
+                              RoundedButton(
+                                text: 'CREATE ACCOUNT',
+                                onPressed: () {
+                                  //TODO
+                                }
+                              ),
 
                             ]),
                       ),
