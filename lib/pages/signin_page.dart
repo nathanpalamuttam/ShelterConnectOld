@@ -48,7 +48,12 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
 
                       SizedBox(height: 10.0),
-                      RoundedButton('SET UP A NEW ACCOUNT', '/create_account'),
+                      RoundedButton(
+                        text: 'SET UP A NEW ACCOUNT',
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/create_account');
+                        }
+                      ),
                       SignInWith(),
                       LoginRow(),
                       SizedBox(height: 0),

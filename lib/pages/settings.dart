@@ -16,9 +16,9 @@ class _SettingsPageState extends State<SettingsPage> {
           preferredSize: Size.fromHeight(45.0),
           child: AppBar(
             centerTitle: true,
-            title: const Text(
+            title: Text(
               'Settings',
-              style: TextStyle(color: Colors.white),
+              style: defaultTextStyle,
             ),
             backgroundColor: Color(0xFF3B96FF),
           ),

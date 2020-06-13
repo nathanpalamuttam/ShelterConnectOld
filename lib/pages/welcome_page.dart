@@ -32,8 +32,18 @@ class _WelcomePageState extends State<WelcomePage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              RoundedButton('LOGIN', '/login'),
-              RoundedButton('SIGN UP', '/signup'),
+              RoundedButton(
+                text: 'LOGIN',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/login');
+                },
+              ),
+              RoundedButton(
+                text: 'SIGN UP',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/signup');
+                },
+              ),
             ]
           ),
         ),

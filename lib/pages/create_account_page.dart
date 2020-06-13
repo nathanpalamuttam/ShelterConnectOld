@@ -46,12 +46,17 @@ class _AccountState extends State<Account> {
                               ),
                               SizedBox(height: 30.0),
                               AccountName('Name'),
-                              EmailText('Email'),
-                              PasswordText('Password'),
+//                              EmailText('Email'),
+//                              PasswordText('Password'),
                               ReenterPassword('Re-enter Password'),
                               SizedBox(height: 1),
                               SizedBox(height: 1),
-                              RoundedButton('CREATE ACCOUNT', ''),
+                              RoundedButton(
+                                text: 'CREATE ACCOUNT',
+                                onPressed: () {
+                                  //TODO
+                                }
+                              ),
 
                             ]),
                       ),

@@ -1,143 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/constants.dart';
 
 //TODO: Consolidate components
 
-class EmailText extends StatelessWidget {
-  final String buttonText;
+class RoundedTextField extends StatelessWidget {
+  final String hintText;
+  final IconData icon;
+  final Function onChanged;
+  final bool obscureText;
 
-  EmailText(this.buttonText);
+  RoundedTextField({this.hintText, this.icon, this.onChanged, this.obscureText = false});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Container(
-          child: Text(
-            buttonText,
-            style: TextStyle(
+        TextField(
+          style: defaultTextStyle,
+          decoration: InputDecoration(
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.white.withOpacity(0.7),
+                width: 1.5,
+              ),
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            contentPadding: EdgeInsets.only(top: 14.0),
+            prefixIcon: Icon(
+              icon,
               color: Colors.white,
+            ),
+            labelText: hintText,
+            labelStyle: TextStyle(
+              color: Colors.white60
             )
           ),
-          alignment: Alignment.centerLeft,
-        ),
-        SizedBox(height: 10.0),
-        Container(
-          alignment: Alignment.centerLeft,
-          height: 60.0,
-          child: TextField(
-            obscureText: true,
-            keyboardType: TextInputType.emailAddress,
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
-                  borderRadius: BorderRadius.all(Radius.circular(15),
-                  )),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue[600]),
-                  borderRadius: BorderRadius.all(Radius.circular(15))),
-              contentPadding: EdgeInsets.only(top: 14.0),
-              prefixIcon: Icon(
-                Icons.email,
-                color: Colors.white,
-              ),
-              hintText: 'Enter your Email',
-              hintStyle: TextStyle(
-                color: Colors.white60
-              )
-            ),
-          ),
+          onChanged: onChanged,
+          obscureText: obscureText,
         ),
       ]
-    );
-  }
-}
-
-class PasswordText extends StatelessWidget {
-  final String buttonText;
-
-  PasswordText(this.buttonText);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          child: Text(
-            buttonText,
-            style: TextStyle(
-              color: Colors.white
-            )
-          ),
-          alignment: Alignment.centerLeft,
-        ),
-        SizedBox(height: 10.0),
-        Container(
-          alignment: Alignment.centerLeft,
-          height: 60.0,
-          child: TextField(
-            obscureText: true,
-            keyboardType: TextInputType.emailAddress,
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
-                  borderRadius: BorderRadius.all(Radius.circular(15))),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue[600]),
-                  borderRadius: BorderRadius.all(Radius.circular(15))),
-              contentPadding: EdgeInsets.only(top: 14.0),
-              prefixIcon: Icon(
-                Icons.lock,
-                color: Colors.white,
-              ),
-              hintText: 'Enter your Password',
-              hintStyle: TextStyle(
-                color: Colors.white60
-              ),
-            ),
-          ),
-        )
-      ]
-    );
-  }
-}
-
-class ForgotPassword extends StatelessWidget {
-  final String buttonText;
-
-  ForgotPassword(this.buttonText);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.centerRight,
-      child: FlatButton(
-        onPressed: () => print('Forgot Password Button Pressed'),
-        padding: EdgeInsets.only(right: 0.0),
-        child: Text(
-          buttonText,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 14.0,
-            fontWeight: FontWeight.bold
-          ),
-          //style: kLabelStyle,
-        ),
-      ),
     );
   }
 }
 
 class RoundedButton extends StatelessWidget {
-  final String buttonText;
+  final String text;
+  final Function onPressed;
 
-  final String route;
-
-  RoundedButton(this.buttonText, this.route);
+  RoundedButton({this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -146,16 +62,14 @@ class RoundedButton extends StatelessWidget {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () {
-          Navigator.pushNamed(context, route);
-        },
+        onPressed: onPressed,
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
         color: Colors.white,
         child: Text(
-          buttonText,
+          text,
           style: TextStyle(
             color: Color(0xFF527DAA),
             letterSpacing: 1.5,
@@ -181,9 +95,7 @@ class AccountName extends StatelessWidget {
           Container(
             child: Text(
                 buttontext,
-                style: TextStyle(
-                  color: Colors.white,
-                )
+                style: defaultTextStyle
             ),
             alignment: Alignment.centerLeft,
           ),
@@ -194,7 +106,7 @@ class AccountName extends StatelessWidget {
             child: TextField(
               obscureText: true,
               keyboardType: TextInputType.emailAddress,
-              style: TextStyle(color: Colors.white),
+              style: defaultTextStyle,
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.blue),
@@ -232,9 +144,7 @@ class ReenterPassword extends StatelessWidget {
           Container(
             child: Text(
                 buttontext,
-                style: TextStyle(
-                  color: Colors.white,
-                )
+                style: defaultTextStyle,
             ),
             alignment: Alignment.centerLeft,
           ),
@@ -245,7 +155,7 @@ class ReenterPassword extends StatelessWidget {
             child: TextField(
               obscureText: true,
               keyboardType: TextInputType.emailAddress,
-              style: TextStyle(color: Colors.white),
+              style: defaultTextStyle,
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.blue),
@@ -287,9 +197,7 @@ class SignInWith extends StatelessWidget {
         SizedBox(height: 20.0),
         Text(
           'Sign up with',
-          style: TextStyle(
-            color: Colors.white
-          ),
+          style: defaultTextStyle,
         ),
       ],
     );
@@ -394,39 +302,6 @@ class SignUp extends StatelessWidget {
           ),
         ),
       )
-    );
-  }
-}        
-
-class RememberMe extends StatefulWidget {
-  @override
-  _RememberMeState createState() => _RememberMeState();
-}
-
-class _RememberMeState extends State<RememberMe> {
-bool checkBoxValue = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Checkbox(
-          value: checkBoxValue,
-          checkColor: Colors.blue,
-          activeColor: Colors.white,
-          onChanged: (val) {
-            setState((){
-              checkBoxValue = val;
-            });
-          },
-        ),
-        Text(
-          'Remember Me',
-          style: TextStyle(
-            color: Colors.white
-          ),
-        ),
-      ]
     );
   }
 }

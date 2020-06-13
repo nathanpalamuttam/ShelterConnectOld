@@ -15,3 +15,8 @@ final LinearGradient blueGradient = LinearGradient(
   ],
   stops: [0.1, 0.4, 0.7, 0.9],
 );
+
+//Text styles
+final TextStyle defaultTextStyle = TextStyle(
+  color: Colors.white
+);
