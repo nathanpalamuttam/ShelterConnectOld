@@ -135,7 +135,9 @@ class ForgotPassword extends StatelessWidget {
 class LoginButton extends StatelessWidget {
   final String buttonText;
 
-  LoginButton(this.buttonText);
+  final String route;
+
+  LoginButton(this.buttonText, this.route);
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +146,9 @@ class LoginButton extends StatelessWidget {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () {
+          Navigator.pushNamed(context, route);
+        },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
@@ -161,6 +165,110 @@ class LoginButton extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class AccountName extends StatelessWidget {
+
+  final String buttontext;
+
+  AccountName(this.buttontext);
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            child: Text(
+                buttontext,
+                style: TextStyle(
+                  color: Colors.white,
+                )
+            ),
+            alignment: Alignment.centerLeft,
+          ),
+          SizedBox(height: 10.0),
+          Container(
+            alignment: Alignment.centerLeft,
+            height: 60.0,
+            child: TextField(
+              obscureText: true,
+              keyboardType: TextInputType.emailAddress,
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                      borderRadius: BorderRadius.all(Radius.circular(15),
+                      )),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue[600]),
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                  contentPadding: EdgeInsets.only(top: 14.0),
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Colors.white,
+                  ),
+                  hintText: 'Enter your preferred Name',
+                  hintStyle: TextStyle(
+                      color: Colors.white60
+                  )
+                //hintStyle: kHintTextStyle,
+              ),
+            ),
+          ),
+        ]);
+  }
+}
+
+class ReenterPassword extends StatelessWidget {
+  final String buttontext;
+
+  ReenterPassword(this.buttontext);
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            child: Text(
+                buttontext,
+                style: TextStyle(
+                  color: Colors.white,
+                )
+            ),
+            alignment: Alignment.centerLeft,
+          ),
+          SizedBox(height: 10.0),
+          Container(
+            alignment: Alignment.centerLeft,
+            height: 60.0,
+            child: TextField(
+              obscureText: true,
+              keyboardType: TextInputType.emailAddress,
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                      borderRadius: BorderRadius.all(Radius.circular(15),
+                      )),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue[600]),
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                  contentPadding: EdgeInsets.only(top: 14.0),
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Colors.white,
+                  ),
+                  hintText: 'Re-enter Password',
+                  hintStyle: TextStyle(
+                      color: Colors.white60
+                  )
+                //hintStyle: kHintTextStyle,
+              ),
+            ),
+          ),
+        ]);
+
   }
 }
 
