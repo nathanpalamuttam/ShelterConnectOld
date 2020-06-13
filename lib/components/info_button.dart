@@ -6,13 +6,13 @@ class InfoButton extends StatelessWidget {
   final String title;
   final String infoText;
   final String buttonText;
-  final String buttonLocation;
+  final String buttonRoute;
 
   InfoButton(
       {@required this.title,
       @required this.infoText,
       @required this.buttonText,
-      @required this.buttonLocation});
+      @required this.buttonRoute});
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +70,7 @@ class InfoButton extends StatelessWidget {
                       ActionButton(
                         text: buttonText,
                         onPressed: () =>
-                            Navigator.pushNamed(context, buttonLocation),
+                            Navigator.pushNamed(context, buttonRoute),
                       ),
                     ],
                   )));
