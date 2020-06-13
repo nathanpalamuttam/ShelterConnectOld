@@ -64,7 +64,7 @@ class _AccountState extends State<Account> {
                               ReenterPassword('Re-enter Password'),
                               SizedBox(height: 1),
                               SizedBox(height: 1),
-                              LoginButton('CREATE ACCOUNT', ''),
+                              RoundedButton('CREATE ACCOUNT', ''),
 
                             ]),
                       ),

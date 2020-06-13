@@ -60,11 +60,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
 
                       SizedBox(height: 10.0),
-                      LoginButton('SET UP A NEW ACCOUNT', '/create_account'),
+                      RoundedButton('SET UP A NEW ACCOUNT', '/create_account'),
                       SignInWith(),
                       LoginRow(),
                       SizedBox(height: 0),
-                      
+
                     ]),
                 ),
               ),

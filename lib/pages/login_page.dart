@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../components/sign_in_button.dart';
-import'../sign_in.dart';
 import 'package:flutter_app/components/login_page_buttons.dart';
 
 class LoginPage extends StatefulWidget {
@@ -70,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 1),
                       RememberMe(),
                       SizedBox(height: 1),
-                      LoginButton('LOGIN', ''),
+                      RoundedButton('LOGIN', ''),
                       
                     ]),
                 ),

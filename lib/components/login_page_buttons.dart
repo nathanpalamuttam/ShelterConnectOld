@@ -132,12 +132,12 @@ class ForgotPassword extends StatelessWidget {
   }
 }
 
-class LoginButton extends StatelessWidget {
+class RoundedButton extends StatelessWidget {
   final String buttonText;
 
   final String route;
 
-  LoginButton(this.buttonText, this.route);
+  RoundedButton(this.buttonText, this.route);
 
   @override
   Widget build(BuildContext context) {
