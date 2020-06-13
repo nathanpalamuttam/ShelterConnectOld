@@ -182,91 +182,28 @@ class ReenterPassword extends StatelessWidget {
   }
 }
 
-class SignInWith extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Text(
-          '- OR -',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        SizedBox(height: 20.0),
-        Text(
-          'Sign up with',
-          style: defaultTextStyle,
-        ),
-      ],
-    );
-  }
-}
+class RoundImageButton extends StatelessWidget {
+  final ImageProvider image;
+  final Function onPressed;
 
-class GoogleLogin extends StatelessWidget {
+  RoundImageButton({this.image, this.onPressed});
 
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15, bottom: 120),
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: RaisedButton(
         color: Colors.white,
         splashColor: Colors.grey,
-        onPressed: () {},
-        shape: new CircleBorder(
-        ),
+        shape: CircleBorder(),
         highlightElevation: 0,
+        onPressed: onPressed,
         child: Padding(
           padding: const EdgeInsets.all(2.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(image: AssetImage("assets/google_logo.png"), height: 44.0),
-            ],
+          child: Image(
+            image: image,
+            height: 44.0
           ),
         ),
-      ),
-    );
-  }
-}
-
-class FacebookLogin extends StatelessWidget {
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15, bottom: 120),
-      child: RaisedButton(
-        color: Colors.white,
-        splashColor: Colors.grey,
-        onPressed: () {},
-        shape: new CircleBorder(
-        ),
-        highlightElevation: 0,
-        child: Padding(
-          padding: const EdgeInsets.all(2.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(image: AssetImage("assets/facebooklogo2.png"), height: 44.0),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class LoginRow extends StatelessWidget {
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          GoogleLogin(),
-          FacebookLogin(),
-        ],
       ),
     );
   }

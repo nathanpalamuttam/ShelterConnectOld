@@ -23,9 +23,7 @@ class _LoginPageState extends State<LoginPage> {
             gradient: blueGradient,
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 40.0,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 40.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

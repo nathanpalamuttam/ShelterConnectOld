@@ -7,7 +7,7 @@ import 'pages/profile_page.dart';
 import 'pages/route_selection_page.dart';
 import 'pages/settings.dart';
 import 'pages/shelter_route.dart';
-import 'pages/signin_page.dart';
+import 'pages/sign_up_page.dart';
 import 'pages/splash_screen.dart';
 import 'pages/volunteer_route.dart';
 import 'pages/welcome_page.dart';
