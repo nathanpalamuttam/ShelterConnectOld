@@ -4,16 +4,18 @@ import 'package:flutter_app/constants.dart';
 //TODO: Consolidate components
 
 class RoundedTextField extends StatelessWidget {
+  final TextEditingController controller;
   final String labelText;
   final IconData icon;
   final Function onChanged;
   final bool obscureText;
 
-  RoundedTextField({this.labelText, this.icon, this.onChanged, this.obscureText = false});
+  RoundedTextField({this.controller, this.labelText, this.icon, this.onChanged, this.obscureText = false});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       style: defaultTextStyle,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
