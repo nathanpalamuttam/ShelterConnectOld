@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'pages/create_account_page.dart';
+import 'pages/donate_page.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
 import 'pages/profile_page.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/welcome_page',
+      initialRoute: '/route_selection',
       routes: {
         '/login': (context) => LoginPage(),
         '/profile': (context) => ProfilePage(),
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/settings': (context) => SettingsPage(),
         '/splash_screen': (context) => SplashScreen(),
         '/welcome_page': (context) => WelcomePage(),
+        '/donate': (context) => DonatePage(),
       },
     );
   }
