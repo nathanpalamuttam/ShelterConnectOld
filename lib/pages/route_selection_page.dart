@@ -28,18 +28,17 @@ class RouteSelectionPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(right: 32.0, left: 32.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Spacer(flex: 4),
-            Stack(
-              children: <Widget>[
-                ActionButton(
-                  text: 'Shelter',
-                  onPressed: () => Navigator.pushNamed(context, '/shelter'),
-                ),
-                Row(
-                  children: <Widget>[
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Spacer(flex: 3),
+              Stack(
+                children: <Widget>[
+                  ActionButton(
+                    text: 'Shelter',
+                    onPressed: () => Navigator.pushNamed(context, '/shelter'),
+                  ),
+                  Row(children: <Widget>[
                     Spacer(),
                     InfoButton(
                       title: 'Status: Shelter',
@@ -47,19 +46,17 @@ class RouteSelectionPage extends StatelessWidget {
                       buttonText: 'Proceed as a Shelter',
                       buttonRoute: '/shelter',
                     ),
-                  ]
-                ),
-              ],
-            ),
-            Spacer(flex: 1),
-            Stack(
-              children: <Widget>[
-                ActionButton(
-                  text: 'Volunteer',
-                  onPressed: () => Navigator.pushNamed(context, '/volunteer'),
-                ),
-                Row(
-                  children: <Widget>[
+                  ]),
+                ],
+              ),
+              Spacer(flex: 1),
+              Stack(
+                children: <Widget>[
+                  ActionButton(
+                    text: 'Volunteer',
+                    onPressed: () => Navigator.pushNamed(context, '/volunteer'),
+                  ),
+                  Row(children: <Widget>[
                     Spacer(),
                     InfoButton(
                       title: 'Status: Volunteer',
@@ -67,13 +64,16 @@ class RouteSelectionPage extends StatelessWidget {
                       buttonText: 'Proceed as a Volunteer',
                       buttonRoute: '/volunteer',
                     ),
-                  ]
-                ),
-              ],
-            ),
-            Spacer(flex: 4),
-          ]
-        ),
+                  ]),
+                ],
+              ),
+              Spacer(flex: 4),
+              ActionButton(
+                text: 'Donate Now!',
+                onPressed: () => Navigator.pushNamed(context, '/donate'),
+              ),
+              Spacer(flex: 1),
+            ]),
       ),
     );
   }
