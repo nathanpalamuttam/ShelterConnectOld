@@ -11,7 +11,7 @@ import 'pages/sign_up_page.dart';
 import 'pages/splash_screen.dart';
 import 'pages/volunteer_route.dart';
 import 'pages/welcome_page.dart';
-
+import 'pages/google_maps_routes.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/welcome_page',
+      initialRoute: '/shelter',
       routes: {
         '/login': (context) => LoginPage(),
         '/profile': (context) => ProfilePage(),
@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/settings': (context) => SettingsPage(),
         '/splash_screen': (context) => SplashScreen(),
         '/welcome_page': (context) => WelcomePage(),
+        '/google_maps_routes': (context) => GoogleMaps(),
       },
     );
   }

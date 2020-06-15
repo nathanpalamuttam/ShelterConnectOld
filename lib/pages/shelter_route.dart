@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/components/box_text_field.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
+import 'google_maps_routes.dart';
 class ShelterRoute extends StatefulWidget {
   @override
   _ShelterRouteState createState() => _ShelterRouteState();
@@ -70,16 +71,17 @@ class _ShelterRouteState extends State<ShelterRoute> {
             ),
           ),
           Expanded(
-            child: GoogleMap(
-              onMapCreated: (controller) {
-                _controller.complete(controller);
-              },
-              initialCameraPosition: CameraPosition(
-                target: _center,
-                zoom: 11.0,
-              ),
-              zoomControlsEnabled: false,
-            ),
+          child: GoogleMaps(),
+//            child: GoogleMap(
+//              onMapCreated: (controller) {
+//                _controller.complete(controller);
+//              },
+//              initialCameraPosition: CameraPosition(
+//                target: _center,
+//                zoom: 11.0,
+//              ),
+//              zoomControlsEnabled: false,
+
           ),
         ],
       ),
