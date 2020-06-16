@@ -13,6 +13,8 @@ import 'pages/splash_screen.dart';
 import 'pages/volunteer_route.dart';
 import 'pages/welcome_page.dart';
 import 'pages/google_maps_routes.dart';
+import 'pages/shelter_profile.dart';
+import 'pages/volunteer_home_page.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -37,6 +39,8 @@ class MyApp extends StatelessWidget {
         '/welcome_page': (context) => WelcomePage(),
         '/google_maps_routes': (context) => GoogleMaps(),
         '/donate': (context) => DonatePage(),
+        '/volunteer_home': (context) => VolunteerHomePage(),
+        '/shelter_profile': (context) => ShelterProfile(),
       },
     );
   }
