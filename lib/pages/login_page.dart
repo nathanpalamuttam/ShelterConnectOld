@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_app/components/login_page_buttons.dart';
 
+import '../components/no_action_alert.dart';
 import '../constants.dart';
 
 class LoginPage extends StatefulWidget {
@@ -85,9 +86,17 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 RoundedButton(
                   text: 'LOGIN',
-                  onPressed: () {
-                    var res = auth.signInWithEmailAndPassword(email: email, password: password);
-                    print('Login successful!');
+                  onPressed: () async {
+                    try {
+                      var res = await auth.signInWithEmailAndPassword(email: email, password: password);
+                      Navigator.pushNamed(context, '/home');
+                    }
+                    catch(e) {
+                      showDialog(
+                        context: context,
+                        builder: (_) => NoActionAlert(title: 'Invalid email or password')
+                      );
+                    }
                   },
                 ),
               ]

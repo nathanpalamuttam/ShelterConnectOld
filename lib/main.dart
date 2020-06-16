@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         '/shelter': (context) => ShelterRoute(),
         '/signup': (context) => SignUpPage(),
         '/create_account': (context) => Account(),
-        '/home_page': (context) => HomePage(),
+        '/home': (context) => HomePage(),
         '/settings': (context) => SettingsPage(),
         '/splash_screen': (context) => SplashScreen(),
         '/welcome_page': (context) => WelcomePage(),
