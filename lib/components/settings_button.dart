@@ -17,7 +17,7 @@ class SettingButton extends StatelessWidget {
             right: 5
           ),
           child: IconButton(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.menu),
             iconSize: 25,
             color: Colors.white,
           onPressed: (){
