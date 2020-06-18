@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components/settings_button.dart';
-//import 'package:sign_in_flutter/constants/constants.dart';
-//import 'package:sign_in_flutter/sign_in.dart';
-
+import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/constants.dart';
+
+import '../components/settings_button.dart';
+import '../constants.dart';
+import '../models/user.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,18 +17,18 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light, 
-              child: GestureDetector(
-                onTap: () => FocusScope.of(context).unfocus(),
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Stack(
-          children: <Widget>[
-            Container(
-                height: double.infinity,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: blueGradient,
-                ),
-            ),
-            Container(
+            children: <Widget>[
+              Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: blueGradient,
+                  ),
+              ),
+              Container(
                 height: double.infinity,
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
@@ -38,30 +38,34 @@ class _HomePageState extends State<HomePage> {
                       SettingButton('/settings'),
                       Padding(
                         padding: const EdgeInsets.only(right: 200, top: 0),
-                        child: Text(getGreeting(),
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        child: Text(
+                          getGreeting(Provider.of<User>(context, listen: false).name),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                      
-                    ]),
+                    ],
+                  ),
                 ),
               ),
-      ]))),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
 
-String getGreeting() {
+String getGreeting(String name) {
   var hour = new DateTime.now().hour;
   if (hour < 12) {
-    return 'Good Morning';
+    return 'Good Morning, $name';
   }
   if (hour < 17) {
-    return 'Good Afternoon';
+    return 'Good Afternoon, $name';
   }
-  return 'Good Evening';
+  return 'Good Evening, $name';
 }

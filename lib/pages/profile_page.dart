@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../components/action_button.dart';
-import '../sign_in.dart';
+import '../constants.dart';
+import '../models/user.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -9,11 +11,6 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blue[400],
       body: Container(
-        // decoration: BoxDecoration(
-          // gradient: LinearGradient(
-          //   begin: Alignment.topCenter,
-          //   end: Alignment.bottomCenter,
-          // ),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Center(
@@ -22,15 +19,16 @@ class ProfilePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    imageUrl,
-                  ),
+                  //TODO: User image?
+//                  backgroundImage: NetworkImage(
+//                    imageUrl,
+//                  ),
                   radius: 60,
                   backgroundColor: Colors.transparent,
                 ),
                 SizedBox(height: 40),
                 Text(
-                  getGreeting(),
+                  getGreeting(Provider.of<User>(context, listen: false).name),
                   style: TextStyle(
                       fontSize: 27,
                       fontWeight: FontWeight.bold,
@@ -38,7 +36,7 @@ class ProfilePage extends StatelessWidget {
                 ),
                 SizedBox(height: 40, width: 30),
                 Center(child: Text(
-                  'You are logged in with $email',
+                  'You are logged in with ${Provider.of<User>(context, listen: false).email}',
                   style: TextStyle(
                       fontSize: 15,
                       color: Colors.white,
@@ -54,8 +52,7 @@ class ProfilePage extends StatelessWidget {
                 
                 RaisedButton(
                   onPressed: () {
-                    signOutGoogle();
-                    Navigator.pushNamed(context, '/login');
+                    auth.signOut();
                   },
                   color: Colors.deepPurple,
                   child: Padding(
@@ -78,7 +75,7 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-String getGreeting() {
+String getGreeting(String name) {
   var hour = new DateTime.now().hour;
   if (hour < 12) {
     return 'Good Morning, $name';
