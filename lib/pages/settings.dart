@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/sign_in.dart';
+
+import '../constants.dart';
+import '../models/user.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -11,9 +14,10 @@ class _SettingsPageState extends State<SettingsPage> {
   final TextStyle whiteText = TextStyle(
     color: Colors.white,
   );
-  final TextStyle greyTExt = TextStyle(
+  final TextStyle greyText = TextStyle(
     color: Colors.grey.shade400,
   );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,10 +66,13 @@ class _SettingsPageState extends State<SettingsPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text('$name', style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.0,
-                          ),),
+                          Text(
+                            Provider.of<User>(context, listen: false).name,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                            ),
+                          ),
                           Text("San Jose",style: TextStyle(
                             color: Colors.grey.shade400,
                           ),),
@@ -81,7 +88,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   )),
-                  subtitle: Text("",style: greyTExt,),
+                  subtitle: Text("",style: greyText,),
                   trailing: Icon(Icons.keyboard_arrow_right,color: Colors.grey.shade400,),
                   onTap: (){},
                 ),
@@ -91,7 +98,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),),
-                  subtitle: Text("Rick Yanashita",style: greyTExt,),
+                  subtitle: Text("Rick Yanashita",style: greyText,),
                   trailing: Icon(Icons.keyboard_arrow_right,color: Colors.grey.shade400,),
                   onTap: (){},
                 ),
@@ -101,7 +108,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),),
-                  subtitle: Text("",style: greyTExt,),
+                  subtitle: Text("",style: greyText,),
                   trailing: Icon(Icons.keyboard_arrow_right,color: Colors.grey.shade400,),
                   onTap: (){},
                 ),
@@ -111,7 +118,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),),
-                  subtitle: Text("On",style: greyTExt,),
+                  subtitle: Text("On",style: greyText,),
                   value: true,
                   onChanged: (val){},
                 ),
@@ -121,16 +128,22 @@ class _SettingsPageState extends State<SettingsPage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),),
-                  subtitle: Text("Off",style: greyTExt,),
+                  subtitle: Text("Off",style: greyText,),
                   value: false,
                   onChanged: (val){},
                 ),
                 ListTile(
                   title: Text("Logout"),
                   onTap: () {
-
+                    auth.signOut();
                   },
-    )])))));
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 

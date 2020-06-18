@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_app/sign_in.dart';
 
 class PurpleButton extends StatelessWidget {
   final String buttontext;
@@ -116,9 +115,7 @@ Widget build(BuildContext context) {
     return OutlineButton(
       splashColor: Colors.grey,
       onPressed: () {
-        signInWithGoogle().whenComplete(() {
-          Navigator.pushNamed(context, buttonaction);
-        });
+        //TODO: Sign in with google
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       highlightElevation: 0,

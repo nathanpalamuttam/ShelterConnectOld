@@ -98,8 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                       });
 
                       try {
-                        var res = await auth.signInWithEmailAndPassword(email: email, password: password);
-                        Navigator.pushReplacementNamed(context, '/home');
+                        await auth.signInWithEmailAndPassword(email: email, password: password);
                       }
                       catch(e) {
                         showDialog(

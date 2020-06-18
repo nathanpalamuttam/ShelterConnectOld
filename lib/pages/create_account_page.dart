@@ -97,14 +97,12 @@ class _AccountState extends State<Account> {
                             'name': name,
                             'email': email,
                           });
-                          Navigator.pushReplacementNamed(context, '/route_selection');
                         } catch(e) {
                           showDialog(
                               context: context,
                               builder: (_) => NoActionAlert(title: 'Invalid email')
                           );
                         }
-
                         setState(() {
                           loading = false;
                         });
