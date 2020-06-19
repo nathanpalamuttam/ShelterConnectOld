@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/constants.dart';
-import 'package:flutter_app/sign_in.dart';
+
+import '../constants.dart';
+import '../models/user.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -9,95 +11,151 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  final TextStyle whiteText = TextStyle(
+    color: Colors.white,
+  );
+  final TextStyle greyText = TextStyle(
+    color: Colors.grey.shade400,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(45.0),
-          child: AppBar(
-            centerTitle: true,
-            title: Text(
-              'Settings',
-              style: defaultTextStyle,
+      backgroundColor: Colors.blue[800],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(45.0),
+        child: AppBar(
+          centerTitle: true,
+          title: Text(
+            'Settings',
+          ),
+          backgroundColor: Color(0xFF3B96FF),
+        ),
+      ),
+      body: Theme(
+        data: Theme.of(context).copyWith(
+          brightness: Brightness.dark,
+          primaryColor: Colors.purple,
+        ),
+        child: DefaultTextStyle(
+          style: TextStyle(
+            color: Colors.white,
+          ),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.only(right: 32, left: 20, top: 15),
+            child: Column(
+              children: <Widget>[
+                const SizedBox(height: 15.0),
+                Row(
+                  children: <Widget>[
+                    Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: NetworkImage('https://www.guidedogs.org/wp-content/uploads/2019/11/website-donate-mobile.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                        border: Border.all(color: Colors.white,width: 2.0,),
+                      ),
+                    ),
+                    const SizedBox(width: 10.0),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            Provider.of<User>(context, listen: false).name,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                            ),
+                          ),
+                          Text("San Jose",style: TextStyle(
+                            color: Colors.grey.shade400,
+                          ),),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20.0),
+                ListTile(
+                  title: Text("Order Details", style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  )),
+                  subtitle: Text("",style: greyText,),
+                  trailing: Icon(Icons.keyboard_arrow_right,color: Colors.grey.shade400,),
+                  onTap: (){},
+                ),
+                ListTile(
+                  title: Text("Profile Settings", style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),),
+                  subtitle: Text("Rick Yanashita",style: greyText,),
+                  trailing: Icon(Icons.keyboard_arrow_right,color: Colors.grey.shade400,),
+                  onTap: (){},
+                ),
+                ListTile(
+                  title: Text("App Preferences", style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),),
+                  subtitle: Text("",style: greyText,),
+                  trailing: Icon(Icons.keyboard_arrow_right,color: Colors.grey.shade400,),
+                  onTap: (){},
+                ),
+                SwitchListTile(
+                  title: Text("Email Updates", style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),),
+                  subtitle: Text("On",style: greyText,),
+                  value: true,
+                  onChanged: (val){},
+                ),
+                SwitchListTile(
+                  title: Text("Push Notifications", style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),),
+                  subtitle: Text("Off",style: greyText,),
+                  value: false,
+                  onChanged: (val){},
+                ),
+                ListTile(
+                  title: Text("Logout"),
+                  onTap: () {
+                    auth.signOut();
+                  },
+                ),
+              ],
             ),
-            backgroundColor: Color(0xFF3B96FF),
           ),
         ),
-        body: AnnotatedRegion<SystemUiOverlayStyle>(
-            value: SystemUiOverlayStyle.light,
-            child: GestureDetector(
-                onTap: () => FocusScope.of(context).unfocus(),
-                child: Stack(children: <Widget>[
-                  Container(
-                    height: double.infinity,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      gradient: blueGradient,
-                    ),
-                  ),
-                  Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                // Padding(
-                                //   padding: const EdgeInsets.only(top: 40, left: 15),
-                                //   // child: CircleAvatar(
-                                //   //   backgroundImage: NetworkImage(
-                                //   //     imageUrl,
-                                //   //   ),
-                                //     radius: 25,
-                                //     backgroundColor: Colors.transparent,
-                                //   ),
-                                // ),
-                                
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 35, left: 10),
-                                  child: 
-                                  Text(
-                                    '$name',
-                                    style: TextStyle(
-                                        fontSize: 27,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 100, right: 77 ),
-                                  child: Text(
-                                    'View Profile',
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
-                                  ),
-                                ),
-                                // SizedBox(height: 40, width: 30),
-                                // Center(child: Text(
-                                //   'You are logged in with $email',
-                                //   style: TextStyle(
-                                //       fontSize: 15,
-                                //       color: Colors.white,
-                                //       fontWeight: FontWeight.bold),
-                              ]),
-                  Center(
-                    child: RaisedButton(
-                      onPressed: () {
-                        signOutGoogle();
-                        Navigator.pushNamed(context, '/first');
-                      },
-                      color: Colors.deepPurple,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Sign Out',
-                          style: TextStyle(fontSize: 25, color: Colors.white),
-                        ),
-                      ),
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40)),
-                    ),
-                  ),
-                ]))));
+      ),
+    );
   }
 }
+
+
+//onPressed: () {
+//signOutGoogle();
+//Navigator.pushNamed(context, '/first');
+
+// SizedBox(height: 40, width: 30),
+// Center(child: Text(
+//   'You are logged in with $email',
+//   style: TextStyle(
+//       fontSize: 15,
+//       color: Colors.white,
+//       fontWeight: FontWeight.{
