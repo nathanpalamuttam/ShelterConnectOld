@@ -13,16 +13,24 @@ import 'pages/splash_screen.dart';
 import 'pages/volunteer_route.dart';
 import 'pages/welcome_page.dart';
 import 'pages/google_maps_routes.dart';
-void main() => runApp(MyApp());
+import './maps_redirect.dart';
+import 'googleautocomplete.dart';
+void main() {
+//  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
+}
+
+
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/welcome_page',
+      initialRoute: '/route_selection',
       routes: {
         '/login': (context) => LoginPage(),
         '/profile': (context) => ProfilePage(),
@@ -37,6 +45,8 @@ class MyApp extends StatelessWidget {
         '/welcome_page': (context) => WelcomePage(),
         '/google_maps_routes': (context) => GoogleMaps(),
         '/donate': (context) => DonatePage(),
+        '/maps_redirect_util': (context) => MapsRedirect(),
+        '/googleautocomplete': (context) => RoutesWidget(),
       },
     );
   }

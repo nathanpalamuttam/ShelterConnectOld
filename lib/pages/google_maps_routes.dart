@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -9,6 +10,8 @@ class GoogleMaps extends StatefulWidget {
 }
 
 class _GoogleMapsStateState extends State<GoogleMaps> {
+
+
   @override
   GoogleMapController mapController;
 
@@ -18,11 +21,12 @@ class _GoogleMapsStateState extends State<GoogleMaps> {
     body:Stack(
     children: <Widget> [
     GoogleMap(
-    onMapCreated: onMapCreated,
+
     initialCameraPosition: CameraPosition(
     target: LatLng(40.7128, -74.0060), zoom: 10.0,
     ),
     ),
+
       Positioned(
         top: 30.0,
         right: 15.0,
@@ -34,7 +38,7 @@ class _GoogleMapsStateState extends State<GoogleMaps> {
             borderRadius: BorderRadius.circular(10.0),
             color: Colors.white,
           ),
-          child: TextField(
+            child: TextField(
             decoration: InputDecoration(
               hintText: 'Enter Address',
               border: InputBorder.none,
@@ -43,16 +47,17 @@ class _GoogleMapsStateState extends State<GoogleMaps> {
                 icon: Icon(Icons.search),
                 onPressed: searchandNavigate,
                 iconSize: 30.0,
+
               ),
             ),
             onChanged: (val){
               setState(() {
                 searchAddr = val;
-              });
+                });
             },
           ),
+          ),
         ),
-      ),
     ]
     ),
     );
@@ -63,11 +68,13 @@ class _GoogleMapsStateState extends State<GoogleMaps> {
           target:
           LatLng(result[0].position.latitude, result[0].position.longitude),
           zoom: 15.0)));
+
     });
+
   }
-    void onMapCreated(controller){
-    setState((){
-    mapController = controller;
-    });
+    void onMapCreated(controller) {
+      setState(() {
+        mapController = controller;
+      });
     }
     }
