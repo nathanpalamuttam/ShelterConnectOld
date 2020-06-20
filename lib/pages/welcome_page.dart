@@ -12,7 +12,6 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-
   @override
   void initState() {
     auth.onAuthStateChanged.listen((user) {
@@ -67,7 +66,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   Navigator.pushNamed(context, '/signup');
                 },
               ),
-            ]
+            ],
           ),
         ),
       ),

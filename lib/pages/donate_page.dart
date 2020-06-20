@@ -17,7 +17,11 @@ class _DonatePageState extends State<DonatePage> {
         title: Padding(
           padding: const EdgeInsets.only(right: 60.0, left: 10.0),
           child: Center(
-              child: Text('Donate Now!', style: TextStyle(fontSize: 30))),
+            child: Text(
+              'Donate Now!',
+              style: TextStyle(fontSize: 30),
+            ),
+          ),
         ),
       ),
       body: Padding(

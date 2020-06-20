@@ -23,6 +23,4 @@ final LinearGradient blueGradient = LinearGradient(
 );
 
 //Text styles
-final TextStyle defaultTextStyle = TextStyle(
-  color: Colors.white
-);
+final TextStyle defaultTextStyle = TextStyle(color: Colors.white);

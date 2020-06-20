@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
-import 'package:flutter_app/components/login_page_buttons.dart';
-
+import '../components/login_page_buttons.dart';
 import '../components/no_action_alert.dart';
 import '../constants.dart';
 
@@ -35,13 +34,14 @@ class _LoginPageState extends State<LoginPage> {
                 children: <Widget>[
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text('Login',
+                    child: Text(
+                      'Login',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30.0,
                         fontWeight: FontWeight.bold,
                       ),
-                      ),
+                    ),
                   ),
                   SizedBox(height: 30.0),
                   RoundedTextField(
@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: true,
                     onChanged: (val) {
                       password = val;
-                    }
+                    },
                   ),
                   Container(
                     alignment: Alignment.centerRight,
@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                       padding: EdgeInsets.only(right: 0.0),
                       child: Text(
                         'Forgot Password?',
-                        style: defaultTextStyle.copyWith(fontWeight: FontWeight.bold)
+                        style: defaultTextStyle.copyWith(fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                         'Remember Me',
                         style: defaultTextStyle,
                       ),
-                    ]
+                    ],
                   ),
                   RoundedButton(
                     text: 'LOGIN',
@@ -99,12 +99,8 @@ class _LoginPageState extends State<LoginPage> {
 
                       try {
                         await auth.signInWithEmailAndPassword(email: email, password: password);
-                      }
-                      catch(e) {
-                        showDialog(
-                          context: context,
-                          builder: (_) => NoActionAlert(title: 'Invalid email or password')
-                        );
+                      } catch (e) {
+                        showDialog(context: context, builder: (_) => NoActionAlert(title: 'Invalid email or password'));
                         passwordController.clear();
                       }
 
@@ -113,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                       });
                     },
                   ),
-                ]
+                ],
               ),
             ),
           ),

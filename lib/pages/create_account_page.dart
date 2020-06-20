@@ -33,7 +33,8 @@ class _AccountState extends State<Account> {
                 children: <Widget>[
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text('Create account',
+                    child: Text(
+                      'Create account',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30.0,
@@ -47,7 +48,7 @@ class _AccountState extends State<Account> {
                     icon: Icons.person,
                     onChanged: (val) {
                       name = val;
-                    }
+                    },
                   ),
                   SizedBox(height: 20.0),
                   RoundedTextField(
@@ -82,11 +83,12 @@ class _AccountState extends State<Account> {
                       if (password != reEnteredPassword) {
                         showDialog(
                           context: context,
-                          builder: (_) => NoActionAlert(title: 'The passwords you entered did not match, please try again.')
+                          builder: (_) => NoActionAlert(
+                            title: 'The passwords you entered did not match, please try again.',
+                          ),
                         );
                         reEnteredPasswordController.clear();
-                      }
-                      else {
+                      } else {
                         setState(() {
                           loading = true;
                         });
@@ -97,19 +99,20 @@ class _AccountState extends State<Account> {
                             'name': name,
                             'email': email,
                           });
-                        } catch(e) {
+                        } catch (e) {
                           showDialog(
-                              context: context,
-                              builder: (_) => NoActionAlert(title: 'Invalid email')
+                            context: context,
+                            builder: (_) => NoActionAlert(title: 'Invalid email'),
                           );
                         }
+
                         setState(() {
                           loading = false;
                         });
-                      }
-                    }
+                      } // else
+                    }, // onPressed
                   ),
-                ]
+                ],
               ),
             ),
           ),

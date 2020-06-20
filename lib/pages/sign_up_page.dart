@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components/login_page_buttons.dart';
 
+import '../components/login_page_buttons.dart';
 import '../constants.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -10,7 +10,6 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +38,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 text: 'SET UP A NEW ACCOUNT',
                 onPressed: () {
                   Navigator.pushNamed(context, '/create_account');
-                }
+                },
               ),
               Column(
                 children: <Widget>[
@@ -62,7 +61,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     image: AssetImage('assets/google_logo.png'),
                     onPressed: () {
                       //TODO
-                    }
+                    },
                   ),
                   RoundImageButton(
                     image: AssetImage('assets/facebooklogo2.png'),
