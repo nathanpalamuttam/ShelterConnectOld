@@ -20,7 +20,7 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Container(
                 alignment: Alignment.topLeft,
@@ -35,42 +35,18 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(height: 10.0),
               RoundedButton(
-                text: 'SET UP A NEW ACCOUNT',
+                text: 'SET UP USER ACCOUNT',
                 onPressed: () {
-                  Navigator.pushNamed(context, '/create_account');
+                  Navigator.pushNamed(context, '/create_user_account');
                 },
               ),
-              Column(
-                children: <Widget>[
-                  Text(
-                    '- OR -',
-                    style: defaultTextStyle,
-                  ),
-                  SizedBox(height: 20.0),
-                  Text(
-                    'Sign up with',
-                    style: defaultTextStyle,
-                  ),
-                ],
+              RoundedButton(
+                text: 'SET UP SHELTER ACCOUNT',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/shelter');
+                },
               ),
-              SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  RoundImageButton(
-                    image: AssetImage('assets/google_logo.png'),
-                    onPressed: () {
-                      //TODO
-                    },
-                  ),
-                  RoundImageButton(
-                    image: AssetImage('assets/facebooklogo2.png'),
-                    onPressed: () {
-                      //TODO
-                    },
-                  ),
-                ],
-              ),
+              SizedBox(height: 30),
             ],
           ),
         ),

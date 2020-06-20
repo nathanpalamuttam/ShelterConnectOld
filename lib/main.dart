@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/components/google_autocomplete.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user.dart';
-import 'pages/create_account_page.dart';
+import 'pages/create_user_account_page.dart';
+import 'pages/create_shelter_account_page.dart';
 import 'pages/donate_page.dart';
 import 'pages/google_maps_routes.dart';
 import 'pages/home_page.dart';
@@ -28,18 +30,21 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/welcome',
         routes: { // TODO: Alphabetize
+          '/create_user_account': (context) => Account(),
+          '/create_shelter_account': (context) => ShelterAccount(),
+          '/donate': (context) => DonatePage(),
+          '/google_maps_routes': (context) => GoogleMaps(),
+          '/google_autocomplete': (context) => RoutesWidget(),
+          '/home': (context) => HomePage(),
           '/login': (context) => LoginPage(),
           '/route_selection': (context) => RouteSelectionPage(),
-          '/shelter': (context) => ShelterRoute(),
-          '/signup': (context) => SignUpPage(),
-          '/create_account': (context) => Account(),
-          '/home': (context) => HomePage(),
           '/settings': (context) => SettingsPage(),
-          '/welcome': (context) => WelcomePage(),
-          '/google_maps_routes': (context) => GoogleMaps(),
-          '/donate': (context) => DonatePage(),
-          '/volunteer_home': (context) => VolunteerHomePage(),
+          '/shelter': (context) => ShelterRoute(),
           '/shelter_profile': (context) => ShelterProfile(),
+          '/signup': (context) => SignUpPage(),
+          '/volunteer_home': (context) => VolunteerHomePage(),
+          '/welcome': (context) => WelcomePage(),
+
         },
       ),
     );
