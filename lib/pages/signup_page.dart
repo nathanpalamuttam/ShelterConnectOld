@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import '../components/login_page_buttons.dart';
 import '../constants.dart';
 
-class SignUpPage extends StatefulWidget {
+class SignupPage extends StatefulWidget {
   @override
-  _SignUpPageState createState() => _SignUpPageState();
+  _SignupPageState createState() => _SignupPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,15 +35,15 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(height: 10.0),
               RoundedButton(
-                text: 'SET UP USER ACCOUNT',
+                text: 'SIGN UP AS A VOLUNTEER',
                 onPressed: () {
-                  Navigator.pushNamed(context, '/create_user_account');
+                  Navigator.pushNamed(context, '/volunteer_signup');
                 },
               ),
               RoundedButton(
-                text: 'SET UP SHELTER ACCOUNT',
+                text: 'SIGN UP AS A SHELTER',
                 onPressed: () {
-                  Navigator.pushNamed(context, '/shelter');
+                  Navigator.pushNamed(context, '/shelter_signup');
                 },
               ),
               SizedBox(height: 30),

@@ -11,7 +11,7 @@ class ShelterSignupPage extends StatefulWidget {
 }
 
 class _ShelterSignupPageState extends State<ShelterSignupPage> {
-  String name, email, password, reEnteredPassword;
+  String email, password, reEnteredPassword;
   TextEditingController reEnteredPasswordController = TextEditingController();
   bool loading = false;
 
@@ -34,7 +34,7 @@ class _ShelterSignupPageState extends State<ShelterSignupPage> {
                   Container(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Create account',
+                      'Shelter Signup',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30.0,
@@ -88,7 +88,6 @@ class _ShelterSignupPageState extends State<ShelterSignupPage> {
                         try {
                           var res = await auth.createUserWithEmailAndPassword(email: email, password: password);
                           db.collection('users').document(res.user.uid).setData({
-                            'name': name,
                             'email': email,
                           });
                         } catch (e) {

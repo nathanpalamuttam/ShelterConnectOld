@@ -13,7 +13,7 @@ import 'pages/route_selection_page.dart';
 import 'pages/settings.dart';
 import 'pages/shelter_profile.dart';
 import 'pages/shelter_route.dart';
-import 'pages/sign_up_page.dart';
+import 'pages/signup_page.dart';
 import 'pages/volunteer_home_page.dart';
 import 'pages/welcome_page.dart';
 
@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/welcome',
         routes: {
-          '/create_user_account': (context) => VolunteerSignupPage(),
-          '/create_shelter_account': (context) => ShelterSignupPage(),
+          '/volunteer_signup': (context) => VolunteerSignupPage(),
+          '/shelter_signup': (context) => ShelterSignupPage(),
           '/donate': (context) => DonatePage(),
           '/google_maps_routes': (context) => GoogleMaps(),
           '/google_autocomplete': (context) => RoutesWidget(),
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           '/settings': (context) => SettingsPage(),
           '/shelter': (context) => ShelterRoute(),
           '/shelter_profile': (context) => ShelterProfile(),
-          '/signup': (context) => SignUpPage(),
+          '/signup': (context) => SignupPage(),
           '/volunteer_home': (context) => VolunteerHomePage(),
           '/welcome': (context) => WelcomePage(),
 

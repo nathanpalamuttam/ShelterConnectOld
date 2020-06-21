@@ -34,7 +34,7 @@ class _VolunteerSignupPageState extends State<VolunteerSignupPage> {
                   Container(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Create account',
+                      'Volunteer Signup',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30.0,
