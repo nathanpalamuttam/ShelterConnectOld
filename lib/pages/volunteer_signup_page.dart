@@ -5,12 +5,12 @@ import '../components/login_page_buttons.dart';
 import '../components/no_action_alert.dart';
 import '../constants.dart';
 
-class Account extends StatefulWidget {
+class VolunteerSignupPage extends StatefulWidget {
   @override
-  _AccountState createState() => _AccountState();
+  _VolunteerSignupPageState createState() => _VolunteerSignupPageState();
 }
 
-class _AccountState extends State<Account> {
+class _VolunteerSignupPageState extends State<VolunteerSignupPage> {
   String name, email, password, reEnteredPassword;
   TextEditingController reEnteredPasswordController = TextEditingController();
   bool loading = false;

@@ -3,8 +3,8 @@ import 'package:flutter_app/components/google_autocomplete.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user.dart';
-import 'pages/create_user_account_page.dart';
-import 'pages/create_shelter_account_page.dart';
+import 'pages/volunteer_signup_page.dart';
+import 'pages/shelter_signup_page.dart';
 import 'pages/donate_page.dart';
 import 'pages/google_maps_routes.dart';
 import 'pages/home_page.dart';
@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         initialRoute: '/welcome',
-        routes: { // TODO: Alphabetize
-          '/create_user_account': (context) => Account(),
-          '/create_shelter_account': (context) => ShelterAccount(),
+        routes: {
+          '/create_user_account': (context) => VolunteerSignupPage(),
+          '/create_shelter_account': (context) => ShelterSignupPage(),
           '/donate': (context) => DonatePage(),
           '/google_maps_routes': (context) => GoogleMaps(),
           '/google_autocomplete': (context) => RoutesWidget(),

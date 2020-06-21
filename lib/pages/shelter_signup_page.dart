@@ -5,12 +5,12 @@ import '../components/login_page_buttons.dart';
 import '../components/no_action_alert.dart';
 import '../constants.dart';
 
-class ShelterAccount extends StatefulWidget {
+class ShelterSignupPage extends StatefulWidget {
   @override
-  _ShelterAccountState createState() => _ShelterAccountState();
+  _ShelterSignupPageState createState() => _ShelterSignupPageState();
 }
 
-class _ShelterAccountState extends State<ShelterAccount> {
+class _ShelterSignupPageState extends State<ShelterSignupPage> {
   String name, email, password, reEnteredPassword;
   TextEditingController reEnteredPasswordController = TextEditingController();
   bool loading = false;
