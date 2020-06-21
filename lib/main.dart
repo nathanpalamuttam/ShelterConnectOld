@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/google_autocomplete.dart';
-import 'package:flutter_app/pages/phone_authentication_page.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user.dart';
@@ -17,7 +16,6 @@ import 'pages/shelter_route.dart';
 import 'pages/sign_up_page.dart';
 import 'pages/volunteer_home_page.dart';
 import 'pages/welcome_page.dart';
-import 'components/phone_authentication.dart';
 
 void main() => runApp(MyApp());
 
@@ -39,8 +37,6 @@ class MyApp extends StatelessWidget {
           '/google_autocomplete': (context) => RoutesWidget(),
           '/home': (context) => HomePage(),
           '/login': (context) => LoginPage(),
-          '/phone_auth': (context) => AuthService().handleAuth(),
-          '/phone_auth_page': (context) => PhoneAuthPage(),
           '/route_selection': (context) => RouteSelectionPage(),
           '/settings': (context) => SettingsPage(),
           '/shelter': (context) => ShelterRoute(),
