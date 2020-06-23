@@ -14,7 +14,6 @@ import 'pages/settings.dart';
 import 'pages/shelter_profile.dart';
 import 'pages/shelter_route.dart';
 import 'pages/signup_page.dart';
-import 'pages/volunteer_confirmation_page.dart';
 import 'pages/volunteer_home_page.dart';
 import 'pages/welcome_page.dart';
 
@@ -43,7 +42,6 @@ class MyApp extends StatelessWidget {
           '/shelter': (context) => ShelterRoute(),
           '/shelter_profile': (context) => ShelterProfile(),
           '/signup': (context) => SignupPage(),
-          '/volunteer_confirmation': (context) => VolunteerConfirmation(),
           '/volunteer_home': (context) => VolunteerHomePage(),
           '/welcome': (context) => WelcomePage(),
         },

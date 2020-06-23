@@ -27,12 +27,7 @@ class _WelcomePageState extends State<WelcomePage> {
 
           Provider.of<User>(context, listen: false).name = userSnapshot['name'];
           Provider.of<User>(context, listen: false).type = UserType.VOLUNTEER;
-
-          if (user.isEmailVerified) {
-            Navigator.pushNamed(context, '/home');
-          } else {
-            Navigator.pushNamed(context, '/volunteer_confirmation');
-          }
+          Navigator.pushNamed(context, '/home');
         });
 
         //Shelter sign in
