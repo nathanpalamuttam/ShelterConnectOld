@@ -5,13 +5,13 @@ import '../components/login_page_buttons.dart';
 import '../components/no_action_alert.dart';
 import '../constants.dart';
 
-class Account extends StatefulWidget {
+class ShelterSignupPage extends StatefulWidget {
   @override
-  _AccountState createState() => _AccountState();
+  _ShelterSignupPageState createState() => _ShelterSignupPageState();
 }
 
-class _AccountState extends State<Account> {
-  String name, email, password, reEnteredPassword;
+class _ShelterSignupPageState extends State<ShelterSignupPage> {
+  String email, password, reEnteredPassword;
   TextEditingController reEnteredPasswordController = TextEditingController();
   bool loading = false;
 
@@ -34,7 +34,7 @@ class _AccountState extends State<Account> {
                   Container(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Create account',
+                      'Shelter Signup',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30.0,
@@ -44,15 +44,7 @@ class _AccountState extends State<Account> {
                   ),
                   SizedBox(height: 30.0),
                   RoundedTextField(
-                    labelText: 'Preferred Name',
-                    icon: Icons.person,
-                    onChanged: (val) {
-                      name = val;
-                    },
-                  ),
-                  SizedBox(height: 20.0),
-                  RoundedTextField(
-                    labelText: 'Email',
+                    labelText: 'Organization Email',
                     icon: Icons.email,
                     onChanged: (val) {
                       email = val;
@@ -95,8 +87,7 @@ class _AccountState extends State<Account> {
 
                         try {
                           var res = await auth.createUserWithEmailAndPassword(email: email, password: password);
-                          db.collection('users').document(res.user.uid).setData({
-                            'name': name,
+                          db.collection('shelters').document(res.user.uid).setData({
                             'email': email,
                           });
                         } catch (e) {

@@ -73,7 +73,7 @@ class _ShelterRouteState extends State<ShelterRoute> {
                   ),
                   FloatingActionButton.extended(
                     onPressed: () {
-                      //TODO
+                      Navigator.pushNamed(context,'/create_shelter_account');
                     },
                     label: Text('Next'),
                   ),
