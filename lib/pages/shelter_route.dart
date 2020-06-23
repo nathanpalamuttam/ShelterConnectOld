@@ -12,6 +12,7 @@ class ShelterRoute extends StatefulWidget {
 
 const kGoogleApiKey = 'AIzaSyDtBjj6ReiOlVtylupAx-wcLe2HmsJXXFs';
 final homeScaffoldKey = GlobalKey<ScaffoldState>();
+final searchScaffoldKey = GlobalKey<ScaffoldState>();
 GoogleMapsPlaces _places = GoogleMapsPlaces(apiKey: kGoogleApiKey);
 
 class _ShelterRouteState extends State<ShelterRoute> {
@@ -85,6 +86,19 @@ class _ShelterRouteState extends State<ShelterRoute> {
     );
   }
 
+  Future<Null> displayPrediction(Prediction p, ScaffoldState scaffold) async {
+    if (p != null) {
+      // get detail (lat/lng)
+      PlacesDetailsResponse detail = await _places.getDetailsByPlaceId(p.placeId);
+      final lat = detail.result.geometry.location.lat;
+      final lng = detail.result.geometry.location.lng;
+
+      scaffold.showSnackBar(
+        SnackBar(content: Text("${p.description} - $lat/$lng")),
+      );
+    }
+  }
+
   Future<void> _handlePressButton() async {
     Prediction p = await PlacesAutocomplete.show(
       context: context,
@@ -94,17 +108,29 @@ class _ShelterRouteState extends State<ShelterRoute> {
       language: "en",
       components: [Component(Component.country, "us")],
     );
-
     displayPrediction(p, homeScaffoldKey.currentState);
   }
+}
 
-  Future<Null> displayPrediction(Prediction p, ScaffoldState scaffold) async {
-    if (p != null) {
-      PlacesDetailsResponse detail = await _places.getDetailsByPlaceId(p.placeId);
-      final lat = detail.result.geometry.location.lat;
-      final lng = detail.result.geometry.location.lng;
-
-      scaffold.showSnackBar(SnackBar(content: Text("${p.description} - $lat/$lng")));
-    }
+@override
+void onResponse(PlacesAutocompleteResponse response) {
+  onResponse(response);
+  if (response != null && response.predictions.isNotEmpty) {
+    searchScaffoldKey.currentState.showSnackBar(
+      SnackBar(content: Text("Got answer")),
+    );
   }
+}
+
+void onResponseError(PlacesAutocompleteResponse response) {
+  onResponseError(response);
+  searchScaffoldKey.currentState.showSnackBar(
+    SnackBar(content: Text(response.errorMessage)),
+  );
+}
+
+void onError(PlacesAutocompleteResponse response) {
+  homeScaffoldKey.currentState.showSnackBar(
+    SnackBar(content: Text(response.errorMessage)),
+  );
 }

@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/welcome',
+        initialRoute: '/route_selection',
         routes: { // TODO: Alphabetize
           '/login': (context) => LoginPage(),
           '/route_selection': (context) => RouteSelectionPage(),
