@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:provider/provider.dart';
 
 import '../components/login_page_buttons.dart';
 import '../components/no_action_alert.dart';
 import '../constants.dart';
+import '../models/user.dart';
 
 class VolunteerSignupPage extends StatefulWidget {
   @override
@@ -95,10 +97,14 @@ class _VolunteerSignupPageState extends State<VolunteerSignupPage> {
 
                         try {
                           var res = await auth.createUserWithEmailAndPassword(email: email, password: password);
-                          db.collection('users').document(res.user.uid).setData({
+                          db.collection('volunteers').document(res.user.uid).setData({
                             'name': name,
                             'email': email,
                           });
+                          Provider.of<User>(context, listen: false).email = email;
+                          Provider.of<User>(context, listen: false).uid = res.user.uid;
+                          Provider.of<User>(context, listen: false).name = name;
+                          Provider.of<User>(context, listen: false).type = UserType.VOLUNTEER;
                         } catch (e) {
                           showDialog(
                             context: context,

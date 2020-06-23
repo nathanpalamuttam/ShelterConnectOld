@@ -18,13 +18,27 @@ class _WelcomePageState extends State<WelcomePage> {
       if (user == null) {
         Navigator.popUntil(context, (route) => route.isFirst);
       } else {
+        //Volunteer sign in
         Provider.of<User>(context, listen: false).email = user.email;
         Provider.of<User>(context, listen: false).uid = user.uid;
+        DocumentReference volunteerReference = db.collection('volunteers').document(user.uid);
+        volunteerReference.get().then((userSnapshot) {
+          if (userSnapshot == null) return;
 
-        DocumentReference userReference = db.collection('users').document(user.uid);
-        userReference.get().then((user) {
-          Provider.of<User>(context, listen: false).name = user['name'];
+          Provider.of<User>(context, listen: false).name = userSnapshot['name'];
+          Provider.of<User>(context, listen: false).type = UserType.VOLUNTEER;
           Navigator.pushNamed(context, '/home');
+        });
+
+        //Shelter sign in
+        Provider.of<User>(context, listen: false).email = user.email;
+        Provider.of<User>(context, listen: false).uid = user.uid;
+        DocumentReference shelterReference = db.collection('shelters').document(user.uid);
+        shelterReference.get().then((userSnapshot) {
+          if (userSnapshot == null) return;
+
+          Provider.of<User>(context, listen: false).type = UserType.SHELTER;
+          //TODO: Make shelter home page
         });
       }
     });

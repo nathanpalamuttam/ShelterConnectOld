@@ -44,7 +44,6 @@ class MyApp extends StatelessWidget {
           '/signup': (context) => SignupPage(),
           '/volunteer_home': (context) => VolunteerHomePage(),
           '/welcome': (context) => WelcomePage(),
-
         },
       ),
     );

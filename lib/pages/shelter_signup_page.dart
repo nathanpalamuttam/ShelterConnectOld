@@ -87,7 +87,7 @@ class _ShelterSignupPageState extends State<ShelterSignupPage> {
 
                         try {
                           var res = await auth.createUserWithEmailAndPassword(email: email, password: password);
-                          db.collection('users').document(res.user.uid).setData({
+                          db.collection('shelters').document(res.user.uid).setData({
                             'email': email,
                           });
                         } catch (e) {
