@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../components/login_page_buttons.dart';
 import '../constants.dart';
+import '../models/user.dart';
 
 class VolunteerConfirmation extends StatefulWidget {
   @override
@@ -10,36 +13,74 @@ class VolunteerConfirmation extends StatefulWidget {
 class _VolunteerConfirmationState extends State<VolunteerConfirmation> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Spacer(),
-        RaisedButton(
-          child: Text('send verification'),
-          onPressed: () {
-            auth.currentUser().then((user) {
-              user.sendEmailVerification();
-            });
-            print('sending verification');
-          },
+
+//    try { // TODO: setup try/catch
+//      auth.currentUser().then((user) {
+//        user.sendEmailVerification();
+//      });
+//      print('verification sent');
+//    } catch (e) {
+//      print(e);
+//    }
+
+    return Scaffold(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          gradient: blueGradient,
         ),
-        RaisedButton(
-          child: Text('check verification'),
-          onPressed: () async {
-            // TODO: button must be pressed twice???? WHY????? I DON't UNDERSTAND??????????????????????????????? SEND HELP?????????
-            await auth.currentUser().then((user) {
-              user.reload();
-            });
-
-            Navigator.pushNamed(context, '/welcome');
-
-
-//            auth.currentUser().then((user) {
-//              print(user.isEmailVerified);
-//            });
-          },
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 40.0),
+          child: Column(
+            children: <Widget>[
+              Spacer(
+                flex: 4,
+              ),
+              Text(
+                'A verification email has been sent to your email address: ' +
+                    Provider.of<User>(context, listen: false).email.toString(),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Spacer(flex: 1),
+              RoundedButton(
+                text: 'Change Email Address',
+                onPressed: () {
+                  // TODO: change email functionality
+                },
+              ),
+              RoundedButton(
+                text: 'Resend Verification Email',
+                onPressed: () {
+                  try {
+                    // TODO: fix try/fix (same as first)
+                    auth.currentUser().then((user) {
+                      user.sendEmailVerification();
+                    });
+                    print('verification sent');
+                  } catch (e) {
+                    print(e);
+                  }
+                },
+              ),
+              RoundedButton(
+                text: 'Continue',
+                onPressed: () async {
+                  // TODO: fix issue with requiring second button press
+                  await auth.currentUser().then((user) {
+                    user.reload();
+                  });
+                  Navigator.pushNamed(context, '/welcome');
+                },
+              ),
+              Spacer(flex: 4),
+            ],
+          ),
         ),
-        Spacer(),
-      ],
+      ),
     );
   }
 }
