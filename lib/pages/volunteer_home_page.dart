@@ -31,7 +31,7 @@ class _VolunteerHomePageState extends State<VolunteerHomePage> {
                   child: Text(
                     'Home Page',
                     style: TextStyle(
-                      color: Colors.blue,
+                      color: Colors.black,
                       fontSize: 30.0,
                       fontWeight: FontWeight.bold,
                     ),

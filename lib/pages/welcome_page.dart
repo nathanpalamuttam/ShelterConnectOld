@@ -46,9 +46,11 @@ class _WelcomePageState extends State<WelcomePage> {
           //TODO: Make shelter home page
         });
       }
+
     });
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {

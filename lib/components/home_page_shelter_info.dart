@@ -47,7 +47,7 @@ class ShelterInfo extends StatelessWidget {
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 4,
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   letterSpacing: 1.5,
                                   fontSize: 13.0,
                                   fontWeight: FontWeight.bold,
