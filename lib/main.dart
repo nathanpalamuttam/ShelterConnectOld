@@ -29,13 +29,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/welcome',
+        initialRoute: '/route_selection',
         routes: {
           '/volunteer_signup': (context) => VolunteerSignupPage(),
           '/shelter_signup': (context) => ShelterSignupPage(),
           '/donate': (context) => DonatePage(),
           '/google_maps_routes': (context) => GoogleMaps(),
-          '/google_autocomplete': (context) => RoutesWidget(),
+          '/google_autocomplete': (context) => GoogleAutocomplete(),
           '/home': (context) => HomePage(),
           '/login': (context) => LoginPage(),
           '/route_selection': (context) => RouteSelectionPage(),
