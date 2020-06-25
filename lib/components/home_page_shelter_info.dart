@@ -15,34 +15,39 @@ class ShelterInfo extends StatelessWidget {
         Navigator.pushNamed(context, buttonaction);
       },
       child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)), color: Colors.blue),
+        decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)), color: Colors.white30),
         constraints: BoxConstraints(
-          maxHeight: 150.0,
-          maxWidth: 380.0,
-          minHeight: 150.0,
-          minWidth: 300.0,
+          maxHeight: 300.0,
+          maxWidth: 390.0,
+          minHeight: 300.0,
+          minWidth: 390.0,
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(left: 6.0, top: 10, bottom: 10, right: 15),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(buttonimage),
+                padding: const EdgeInsets.all(10),
+                child: Container(
+                  height: 200,
+                  width: 400,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(buttonimage, fit: BoxFit.fill,),
+                  ),
                 ),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
-                    width: 140,
+                    width: 600,
                     child: Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
                         buttontext,
+                        textAlign: TextAlign.left,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 4,
                         style: TextStyle(

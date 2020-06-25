@@ -15,44 +15,47 @@ class _VolunteerHomePageState extends State<VolunteerHomePage> {
         height: double.infinity,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.lightBlue,
         ),
         child: Container(
           height: double.infinity,
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(
-              horizontal: 20.0,
+              horizontal: 0.0,
               vertical: 70.0,
             ),
             child: Column(
               children: <Widget>[
-                Container(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Home Page',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Container(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Home Page',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(height: 30.0),
                 ShelterInfo('United States Mission Transitional Housing San Jose', '/shelter_profile', 'assets/shelterimage.png'),
                 SizedBox(
-                  height: 30,
+                  height: 3,
                 ),
                 ShelterInfo('United States Mission Transitional Housing San Jose', '/shelter_profile', 'assets/shelterimage.png'),
                 SizedBox(
-                  height: 30,
+                  height: 3,
                 ),
                 ShelterInfo('United States Mission Transitional Housing San Jose', '/shelter_profile', 'assets/shelterimage.png'),
                 SizedBox(
-                  height: 30,
+                  height: 3,
                 ),
                 ShelterInfo('United States Mission Transitional Housing San Jose', '/shelter_profile', 'assets/shelterimage.png'),
                 SizedBox(
-                  height: 30,
+                  height: 3,
                 ),
                 ShelterInfo('United States Mission Transitional Housing San Jose', '/shelter_profile', 'assets/shelterimage.png')
               ],

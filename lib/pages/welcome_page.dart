@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -58,7 +59,7 @@ class _WelcomePageState extends State<WelcomePage> {
       body: Container(
         decoration: BoxDecoration(
           gradient: blueGradient,
-        ),
+          ),
         child: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 40.0,
@@ -67,6 +68,7 @@ class _WelcomePageState extends State<WelcomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
+              SizedBox(height: 100),
               Text(
                 'Welcome to ShelterConnect',
                 style: TextStyle(
