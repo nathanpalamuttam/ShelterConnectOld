@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../components/login_page_buttons.dart';
+import '../components/rounded_button.dart';
 import '../constants.dart';
 import '../models/user.dart';
 
@@ -46,9 +47,11 @@ class _WelcomePageState extends State<WelcomePage> {
           //TODO: Make shelter home page
         });
       }
+
     });
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +59,7 @@ class _WelcomePageState extends State<WelcomePage> {
       body: Container(
         decoration: BoxDecoration(
           gradient: blueGradient,
-        ),
+          ),
         child: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 40.0,
@@ -65,6 +68,7 @@ class _WelcomePageState extends State<WelcomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
+              SizedBox(height: 100),
               Text(
                 'Welcome to ShelterConnect',
                 style: TextStyle(

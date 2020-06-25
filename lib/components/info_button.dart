@@ -8,11 +8,7 @@ class InfoButton extends StatelessWidget {
   final String buttonText;
   final String buttonRoute;
 
-  InfoButton(
-      {@required this.title,
-      @required this.infoText,
-      @required this.buttonText,
-      @required this.buttonRoute});
+  InfoButton({@required this.title, @required this.infoText, @required this.buttonText, @required this.buttonRoute});
 
   @override
   Widget build(BuildContext context) {
@@ -27,53 +23,54 @@ class InfoButton extends StatelessWidget {
 
   void _routeInfoModalBottomSheet(BuildContext context) {
     showModalBottomSheet(
-        shape:
-            RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40.0),
-            topRight: Radius.circular(40.0),
-          ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(40.0),
+          topRight: Radius.circular(40.0),
         ),
-        context: context,
-        builder: (BuildContext bc) {
-          return Container(
-              height: MediaQuery.of(context).size.height * 0.6,
-              child: Padding(
-                  padding: EdgeInsets.all(25.0),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Text(
-                            title,
-                            style: TextStyle(fontSize: 30.0),
-                          ),
-                          Spacer(),
-                          IconButton(
-                            icon: Icon(
-                              Icons.cancel,
-                              color: Colors.grey,
-                              size: 25,
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          )
-                        ],
+      ),
+      context: context,
+      builder: (BuildContext bc) {
+        return Container(
+          height: MediaQuery.of(context).size.height * 0.6,
+          child: Padding(
+            padding: EdgeInsets.all(25.0),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Text(
+                      title,
+                      style: TextStyle(fontSize: 30.0),
+                    ),
+                    Spacer(),
+                    IconButton(
+                      icon: Icon(
+                        Icons.cancel,
+                        color: Colors.grey,
+                        size: 25,
                       ),
-                      Spacer(),
-                      Text(
-                        infoText,
-                        style: TextStyle(fontSize: 20.0),
-                      ),
-                      Spacer(flex: 4),
-                      ActionButton(
-                        text: buttonText,
-                        onPressed: () =>
-                            Navigator.pushNamed(context, buttonRoute),
-                      ),
-                    ],
-                  )));
-        });
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    )
+                  ],
+                ),
+                Spacer(),
+                Text(
+                  infoText,
+                  style: TextStyle(fontSize: 20.0),
+                ),
+                Spacer(flex: 4),
+                ActionButton(
+                  text: buttonText,
+                  onPressed: () => Navigator.pushNamed(context, buttonRoute),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

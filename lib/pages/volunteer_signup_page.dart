@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:provider/provider.dart';
 
-import '../components/login_page_buttons.dart';
 import '../components/no_action_alert.dart';
+import '../components/rounded_button.dart';
+import '../components/rounded_text_field.dart';
 import '../constants.dart';
 import '../models/user.dart';
 
@@ -105,6 +106,15 @@ class _VolunteerSignupPageState extends State<VolunteerSignupPage> {
                           Provider.of<User>(context, listen: false).uid = res.user.uid;
                           Provider.of<User>(context, listen: false).name = name;
                           Provider.of<User>(context, listen: false).type = UserType.VOLUNTEER;
+
+                          auth.currentUser().then((user) {
+                            try {
+                              user.sendEmailVerification();
+                              print('verification sent');
+                            } catch(e) { // TODO: catch block
+                              print('Exception caught: $e');
+                            }
+                          });
 
                           Navigator.pushNamed(context, '/volunteer_confirmation');
 

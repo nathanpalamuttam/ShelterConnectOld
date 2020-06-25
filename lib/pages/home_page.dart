@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../components/settings_button.dart';
 import '../constants.dart';
 import '../models/user.dart';
 
@@ -27,7 +26,17 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SettingButton('/settings'),
+                Padding(
+                  padding: EdgeInsets.only(top: 30, left: 335, right: 5),
+                  child: IconButton(
+                    icon: Icon(Icons.menu),
+                    iconSize: 25,
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/settings');
+                    },
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(right: 200, top: 0),
                   child: Text(
