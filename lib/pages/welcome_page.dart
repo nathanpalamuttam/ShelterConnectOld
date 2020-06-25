@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../components/login_page_buttons.dart';
+import '../components/rounded_button.dart';
 import '../constants.dart';
 import '../models/user.dart';
 

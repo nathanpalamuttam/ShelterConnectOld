@@ -21,10 +21,10 @@ class ActionButton extends StatelessWidget {
             child: Text(
               text,
               style: TextStyle(fontSize: 30, color: Colors.indigo),
-            )
-          )
-        )
-      )
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
-import '../components/login_page_buttons.dart';
 import '../components/no_action_alert.dart';
+import '../components/rounded_button.dart';
+import '../components/rounded_text_field.dart';
 import '../constants.dart';
 
 class LoginPage extends StatefulWidget {
