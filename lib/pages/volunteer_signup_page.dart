@@ -106,6 +106,15 @@ class _VolunteerSignupPageState extends State<VolunteerSignupPage> {
                           Provider.of<User>(context, listen: false).name = name;
                           Provider.of<User>(context, listen: false).type = UserType.VOLUNTEER;
 
+                          auth.currentUser().then((user) {
+                            try {
+                              user.sendEmailVerification();
+                              print('verification sent');
+                            } catch(e) { // TODO: catch block
+                              print('Exception caught: $e');
+                            }
+                          });
+
                           Navigator.pushNamed(context, '/volunteer_confirmation');
 
                         } catch (e) {

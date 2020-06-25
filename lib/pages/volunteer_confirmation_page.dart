@@ -13,16 +13,6 @@ class VolunteerConfirmation extends StatefulWidget {
 class _VolunteerConfirmationState extends State<VolunteerConfirmation> {
   @override
   Widget build(BuildContext context) {
-
-//    try { // TODO: setup try/catch
-//      auth.currentUser().then((user) {
-//        user.sendEmailVerification();
-//      });
-//      print('verification sent');
-//    } catch (e) {
-//      print(e);
-//    }
-
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -49,21 +39,20 @@ class _VolunteerConfirmationState extends State<VolunteerConfirmation> {
               RoundedButton(
                 text: 'Change Email Address',
                 onPressed: () {
-                  // TODO: change email functionality
+                  // TODO: change email functionality (delete user and send back to sign up)
                 },
               ),
               RoundedButton(
                 text: 'Resend Verification Email',
                 onPressed: () {
-                  try {
-                    // TODO: fix try/fix (same as first)
-                    auth.currentUser().then((user) {
+                  auth.currentUser().then((user) {
+                    try {
                       user.sendEmailVerification();
-                    });
-                    print('verification sent');
-                  } catch (e) {
-                    print(e);
-                  }
+                      print('verification sent');
+                    } catch(e) { // TODO: catch block
+                      print('Exception caught: $e');
+                    }
+                  });
                 },
               ),
               RoundedButton(
