@@ -5,6 +5,7 @@ import '../components/no_action_alert.dart';
 import '../components/rounded_button.dart';
 import '../components/rounded_text_field.dart';
 import '../constants.dart';
+import '../shelter_home_page.dart';
 
 class ShelterSignupPage extends StatefulWidget {
   @override
@@ -84,6 +85,7 @@ class _ShelterSignupPageState extends State<ShelterSignupPage> {
                       } else {
                         setState(() {
                           loading = true;
+                          Navigator.pushNamed(context, '/shelter_home');
                         });
 
                         try {
