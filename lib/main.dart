@@ -16,7 +16,7 @@ import 'pages/signup_page.dart';
 import 'pages/volunteer_confirmation_page.dart';
 import 'pages/volunteer_home_page.dart';
 import 'pages/welcome_page.dart';
-import './shelter_home_page.dart';
+import 'pages/shelter_home_page.dart';
 
 void main() => runApp(MyApp());
 

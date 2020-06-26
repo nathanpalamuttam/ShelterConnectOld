@@ -77,53 +77,9 @@ class _ShelterProfileState extends State<ShelterProfile> {
           },
           color: Colors.blue,
           textColor: Colors.white,
-          child: Text('Donate and Volunteer Now!'),
+          child: Text('Donate and Deliver'),
         ),
       ),
     );
   }
 }
-
-//Scaffold(
-//body: Stack(
-//children: <Widget>[
-//Container(
-//height: double.infinity,
-//width: double.infinity,
-//decoration: BoxDecoration(
-//gradient: blueGradient
-//),
-//),
-//Container(
-//child: SingleChildScrollView(
-//padding: EdgeInsets.symmetric(
-//horizontal: 40.0,
-//vertical: 10.0,
-//),
-//child: Column(
-//children: <Widget>[
-//Padding(
-//padding: const EdgeInsets.only(left: 6.0, top: 10, bottom: 10, right: 15),
-//child: ClipRRect(
-//borderRadius: BorderRadius.circular(4.0),
-//child: Image.asset('assets/shelterimage.png'),
-//)
-//),
-//Container(
-//alignment: Alignment.centerLeft,
-//child: Text(
-//'United States Mission Transitional Housing San Jose',
-//style: TextStyle(
-//color: Colors.white,
-//fontSize: 30.0,
-//fontWeight: FontWeight.bold,
-//),
-//),
-//),
-//],
-//),
-//),
-//),
-//],
-//),
-//);
