@@ -12,6 +12,7 @@ import 'pages/request_order_page.dart';
 import 'pages/settings.dart';
 import 'pages/shelter_profile.dart';
 import 'pages/shelter_route.dart';
+import 'pages/shelter_wishlist_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/volunteer_confirmation_page.dart';
 import 'pages/volunteer_home_page.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/welcome',
+        initialRoute: '/shelter_home',
         routes: {
           '/volunteer_signup': (context) => VolunteerSignupPage(),
           '/shelter_signup': (context) => ShelterSignupPage(),
@@ -42,10 +43,12 @@ class MyApp extends StatelessWidget {
           '/shelter': (context) => ShelterRoute(),
           '/shelter_profile': (context) => ShelterProfile(),
           '/shelter_home': (context) => ShelterHomePage(),
+          '/shelter_wishlist': (context) => WishListPage(),
           '/signup': (context) => SignupPage(),
           '/volunteer_confirmation': (context) => VolunteerConfirmation(),
           '/volunteer_home': (context) => VolunteerHomePage(),
           '/welcome': (context) => WelcomePage(),
+
         },
       ),
     );
