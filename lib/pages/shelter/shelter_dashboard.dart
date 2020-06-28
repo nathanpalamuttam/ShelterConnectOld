@@ -2,33 +2,35 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/constants.dart';
 import 'package:flutter_app/models/user.dart';
-import 'package:flutter_app/components/shelter_drawer.dart';
-import 'package:flutter_app/pages/home_page.dart';
 import 'package:provider/provider.dart';
 
-class ShelterDashBoard extends StatefulWidget {
+import '../home_page.dart';
+import 'navigation_tab.dart';
+
+class ShelterDashboard extends StatefulWidget with NavigationTab {
   @override
-  _ShelterDashBoardState createState() => _ShelterDashBoardState();
+  String get title => 'Dashboard';
+
+  @override
+  IconData get icon => Icons.home;
+
+  @override
+  _ShelterDashboardState createState() => _ShelterDashboardState();
 }
 
-class _ShelterDashBoardState extends State<ShelterDashBoard> {
+class _ShelterDashboardState extends State<ShelterDashboard> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("DashBoard"),
-        backgroundColor: Colors.blue,
-      ),
-      drawer: ShelterDrawer(),
-      body: Column(
-        children: <Widget>[
-          Column(children: <Widget>[
+    return Column(
+      children: <Widget>[
+        Column(
+          children: <Widget>[
             Container(
               height: 320,
               width: 395,
-              decoration: (BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: blueGradient,
-              )),
+              ),
               child: Container(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
@@ -48,31 +50,14 @@ class _ShelterDashBoardState extends State<ShelterDashBoard> {
               ),
             ),
             Center(
-              child: Padding(
-                padding: const EdgeInsets.all(30),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5.0),
-                  child: Container(
-                    child: Text('Pending Deliveries'),
-                      margin: const EdgeInsets.only(bottom: 6.0),
-                      height: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                        color: Colors.white,
-                        boxShadow: [BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(0.0, 1.0),
-                          blurRadius: 6.0,
-                        )]
-                      ),
-
-                  ),
-                ),
+              child: Card(
+                child: Text('Pending Deliveries'),
+                margin: const EdgeInsets.only(bottom: 6.0),
               ),
             )
-          ]),
-        ],
-      ),
+          ],
+        ),
+      ],
     );
   }
 }

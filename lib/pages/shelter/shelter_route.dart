@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:search_map_place/search_map_place.dart';
 
-import '../components/box_text_field.dart';
+import '../../components/box_text_field.dart';
 
 class ShelterRoute extends StatefulWidget {
   @override

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/shelter_past_delivery_page.dart';
-import 'package:flutter_app/pages/shelter_pending_delivery_page.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user.dart';
@@ -12,14 +10,13 @@ import 'pages/login_page.dart';
 import 'pages/route_selection_page.dart';
 import 'pages/request_order_page.dart';
 import 'pages/settings.dart';
-import 'pages/shelter_profile.dart';
-import 'pages/shelter_route.dart';
-import 'pages/shelter_requests_page.dart';
+import 'pages/shelter/shelter_navigation_page.dart';
+import 'pages/shelter/shelter_profile.dart';
+import 'pages/shelter/shelter_route.dart';
 import 'pages/signup_page.dart';
 import 'pages/volunteer_confirmation_page.dart';
 import 'pages/volunteer_home_page.dart';
 import 'pages/welcome_page.dart';
-import 'pages/shelter_dashboard.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,27 +29,23 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/welcome',
+        initialRoute: '/shelter_navigation',
         routes: {
-          '/volunteer_signup': (context) => VolunteerSignupPage(),
-          '/shelter_signup': (context) => ShelterSignupPage(),
-          '/google_maps_routes': (context) => GoogleMaps(),
-          '/home': (context) => HomePage(),
-          '/login': (context) => LoginPage(),
-          '/order': (context) => OrderPage(),
-          '/route_selection': (context) => RouteSelectionPage(),
-          '/settings': (context) => SettingsPage(),
-          '/shelter': (context) => ShelterRoute(),
-          '/shelter_profile': (context) => ShelterProfile(),
-          '/shelter_dashboard': (context) => ShelterDashBoard(),
-          '/shelter_past_deliveries': (context) => PastDeliveryPage(),
-          '/shelter_pending_deliveries': (context) => PendingDeliveryPage(),
-          '/shelter_requests': (context) => RequestsPage(),
-          '/signup': (context) => SignupPage(),
-          '/volunteer_confirmation': (context) => VolunteerConfirmation(),
-          '/volunteer_home': (context) => VolunteerHomePage(),
-          '/welcome': (context) => WelcomePage(),
-
+          '/volunteer_signup': (_) => VolunteerSignupPage(),
+          '/shelter_signup': (_) => ShelterSignupPage(),
+          '/google_maps_routes': (_) => GoogleMaps(),
+          '/home': (_) => HomePage(),
+          '/login': (_) => LoginPage(),
+          '/order': (_) => OrderPage(),
+          '/route_selection': (_) => RouteSelectionPage(),
+          '/settings': (_) => SettingsPage(),
+          '/shelter': (_) => ShelterRoute(),
+          '/shelter_profile': (_) => ShelterProfile(),
+          '/shelter_navigation': (_) => ShelterNavigationPage(),
+          '/signup': (_) => SignupPage(),
+          '/volunteer_confirmation': (_) => VolunteerConfirmation(),
+          '/volunteer_home': (_) => VolunteerHomePage(),
+          '/welcome': (_) => WelcomePage(),
         },
       ),
     );
