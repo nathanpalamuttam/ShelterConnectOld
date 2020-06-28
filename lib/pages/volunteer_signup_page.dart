@@ -106,6 +106,11 @@ class _VolunteerSignupPageState extends State<VolunteerSignupPage> {
                           Provider.of<User>(context, listen: false).uid = res.user.uid;
                           Provider.of<User>(context, listen: false).name = name;
                           Provider.of<User>(context, listen: false).type = UserType.VOLUNTEER;
+
+                          auth.currentUser().then((user) {
+                            user.sendEmailVerification();
+                            print('verification sent');
+                          });
                         } catch (e) {
                           print(e);
                           showDialog(
@@ -113,11 +118,6 @@ class _VolunteerSignupPageState extends State<VolunteerSignupPage> {
                             builder: (_) => NoActionAlert(title: 'Invalid email'),
                           );
                         }
-
-                        auth.currentUser().then((user) {
-                            user.sendEmailVerification();
-                            print('verification sent');
-                        });
 
                         setState(() {
                           loading = false;

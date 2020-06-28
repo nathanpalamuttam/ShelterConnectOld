@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,6 +12,15 @@ class VolunteerConfirmation extends StatefulWidget {
 }
 
 class _VolunteerConfirmationState extends State<VolunteerConfirmation> {
+  FirebaseUser user;
+
+  @override
+  void initState() {
+    auth.currentUser().then((res) {
+      user = res;
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,27 +49,21 @@ class _VolunteerConfirmationState extends State<VolunteerConfirmation> {
               RoundedButton(
                 text: 'Change Email Address',
                 onPressed: () {
-                  auth.currentUser().then((user) {
-                    user.delete();
-                  });
+                  user.delete();
                 },
               ),
               RoundedButton(
                 text: 'Resend Verification Email',
                 onPressed: () {
-                  auth.currentUser().then((user) {
-                      user.sendEmailVerification();
-                      print('verification sent');
-                  });
+                  user.sendEmailVerification();
+                  print('Email verification sent');
                 },
               ),
               RoundedButton(
                 text: 'Continue',
                 onPressed: () async {
-                  // TODO: fix issue with requiring second button press
-                  await auth.currentUser().then((user) {
-                    user.reload();
-                  });
+                  await user.reload();
+                  user = await auth.currentUser();
                   Navigator.pushNamed(context, '/welcome');
                 },
               ),

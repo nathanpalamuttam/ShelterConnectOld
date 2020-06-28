@@ -48,6 +48,8 @@ class _WelcomePageState extends State<WelcomePage> {
         });
       }
     });
+
+    super.initState();
   }
 
   @override
