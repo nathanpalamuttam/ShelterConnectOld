@@ -30,9 +30,9 @@ class _WelcomePageState extends State<WelcomePage> {
           Provider.of<User>(context, listen: false).type = UserType.VOLUNTEER;
 
           if (user.isEmailVerified) {
-            Navigator.pushNamed(context, '/home');
+            Navigator.pushNamed(context, '/home'); // TODO: change to volunteer home once log out is available from volunteer_home
           } else {
-            Navigator.pushNamed(context, '/volunteer_confirmation');
+            Navigator.pushReplacementNamed(context, '/volunteer_confirmation');
           }
         });
 
@@ -47,11 +47,9 @@ class _WelcomePageState extends State<WelcomePage> {
           //TODO: Make shelter home page
         });
       }
-
     });
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +57,7 @@ class _WelcomePageState extends State<WelcomePage> {
       body: Container(
         decoration: BoxDecoration(
           gradient: blueGradient,
-          ),
+        ),
         child: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 40.0,

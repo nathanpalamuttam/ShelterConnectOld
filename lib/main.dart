@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/shelter_home',
+        initialRoute: '/welcome',
         routes: {
           '/volunteer_signup': (context) => VolunteerSignupPage(),
           '/shelter_signup': (context) => ShelterSignupPage(),

@@ -39,19 +39,17 @@ class _VolunteerConfirmationState extends State<VolunteerConfirmation> {
               RoundedButton(
                 text: 'Change Email Address',
                 onPressed: () {
-                  // TODO: change email functionality (delete user and send back to sign up)
+                  auth.currentUser().then((user) {
+                    user.delete();
+                  });
                 },
               ),
               RoundedButton(
                 text: 'Resend Verification Email',
                 onPressed: () {
                   auth.currentUser().then((user) {
-                    try {
                       user.sendEmailVerification();
                       print('verification sent');
-                    } catch(e) { // TODO: catch block
-                      print('Exception caught: $e');
-                    }
                   });
                 },
               ),
