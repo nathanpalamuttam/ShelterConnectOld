@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/shelter_past_delivery_page.dart';
+import 'package:flutter_app/pages/shelter_pending_delivery_page.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user.dart';
@@ -12,12 +14,12 @@ import 'pages/request_order_page.dart';
 import 'pages/settings.dart';
 import 'pages/shelter_profile.dart';
 import 'pages/shelter_route.dart';
-import 'pages/shelter_wishlist_page.dart';
+import 'pages/shelter_requests_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/volunteer_confirmation_page.dart';
 import 'pages/volunteer_home_page.dart';
 import 'pages/welcome_page.dart';
-import 'pages/shelter_home_page.dart';
+import 'pages/shelter_dashboard.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,8 +44,10 @@ class MyApp extends StatelessWidget {
           '/settings': (context) => SettingsPage(),
           '/shelter': (context) => ShelterRoute(),
           '/shelter_profile': (context) => ShelterProfile(),
-          '/shelter_home': (context) => ShelterHomePage(),
-          '/shelter_wishlist': (context) => WishListPage(),
+          '/shelter_dashboard': (context) => ShelterDashBoard(),
+          '/shelter_past_deliveries': (context) => PastDeliveryPage(),
+          '/shelter_pending_deliveries': (context) => PendingDeliveryPage(),
+          '/shelter_requests': (context) => RequestsPage(),
           '/signup': (context) => SignupPage(),
           '/volunteer_confirmation': (context) => VolunteerConfirmation(),
           '/volunteer_home': (context) => VolunteerHomePage(),

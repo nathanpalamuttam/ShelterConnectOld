@@ -1,0 +1,127 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_app/constants.dart';
+import 'package:flutter_app/models/user.dart';
+import 'package:flutter_app/components/shelter_drawer.dart';
+import 'package:flutter_app/pages/home_page.dart';
+import 'package:provider/provider.dart';
+
+class ShelterDashBoard extends StatefulWidget {
+  @override
+  _ShelterDashBoardState createState() => _ShelterDashBoardState();
+}
+
+class _ShelterDashBoardState extends State<ShelterDashBoard> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("DashBoard"),
+        backgroundColor: Colors.blue,
+      ),
+      drawer: ShelterDrawer(),
+      body: Column(
+        children: <Widget>[
+          Column(children: <Widget>[
+            Container(
+              height: 320,
+              width: 395,
+              decoration: (BoxDecoration(
+                gradient: blueGradient,
+              )),
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 20,
+                  ),
+                  child: Text(
+                    getGreeting(Provider.of<User>(context, listen: false).name),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                alignment: Alignment.topLeft,
+              ),
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(30),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5.0),
+                  child: Container(
+                    child: Text('Pending Deliveries'),
+                      margin: const EdgeInsets.only(bottom: 6.0),
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                        color: Colors.white,
+                        boxShadow: [BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0.0, 1.0),
+                          blurRadius: 6.0,
+                        )]
+                      ),
+
+                  ),
+                ),
+              ),
+            )
+          ]),
+        ],
+      ),
+    );
+  }
+}
+
+class PendingDelivery extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        alignment: Alignment.center,
+        color: Color(0xFFA3DEEB),
+        height: 50,
+        width: 360,
+        child: Row(
+          children: <Widget>[
+            Container(
+              child: Text("12/12/2020 |"),
+            ),
+            Container(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  " John Appleseed |",
+                  textAlign: TextAlign.left,
+                )),
+            Container(
+                child: Text(
+              " Can of Beans" + "#" + "57124618",
+              textAlign: TextAlign.center,
+            ))
+          ],
+        ));
+  }
+}
+
+class SeeMoreButton extends StatelessWidget {
+  final String buttontext;
+
+  SeeMoreButton(this.buttontext);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 230, right: 15),
+      child: FlatButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/shinsplint');
+          },
+          child: Text(buttontext),
+          color: Colors.blueAccent,
+          textColor: Colors.white),
+    );
+  }
+}
