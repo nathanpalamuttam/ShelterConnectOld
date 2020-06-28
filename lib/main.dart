@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/shelter_navigation',
+        initialRoute: '/welcome',
         routes: {
           '/volunteer_signup': (_) => VolunteerSignupPage(),
           '/shelter_signup': (_) => ShelterSignupPage(),
