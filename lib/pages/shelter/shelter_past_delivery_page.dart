@@ -64,7 +64,23 @@ class _PastDeliveryPageState extends State<PastDeliveryPage> {
         PendingDelivery(),
         SizedBox(
           height: 10,
+        ),PendingDelivery(),
+        SizedBox(
+          height: 10,
         ),
+        PendingDelivery(),
+        SizedBox(
+          height: 10,
+        ),
+        PendingDelivery(),
+        SizedBox(
+          height: 10,
+        ),
+        PendingDelivery(),
+        SizedBox(
+          height: 10,
+        ),
+
         SeeMoreButton('See All Past Deliveries'),
       ],
     );

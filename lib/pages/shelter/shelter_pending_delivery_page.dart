@@ -67,17 +67,24 @@ class _PendingDeliveryPageState extends State<PendingDeliveryPage> {
             SizedBox(
               height: 10,
             ),
+            PendingDelivery(),
+            SizedBox(
+              height: 10,
+            ),
+            PendingDelivery(),
+            SizedBox(
+              height: 10,
+            ),
+            PendingDelivery(),
+            SizedBox(
+              height: 10,
+            ),
+            PendingDelivery(),
+            SizedBox(
+              height: 10,
+            ),
             SeeMoreButton('See all Pending Deliveries'),
           ],
-        ),
-        SizedBox(height: 10),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.0),
-          child: Container(
-            height: 1.0,
-            width: 400.0,
-            color: Colors.black,
-          ),
         ),
         SizedBox(height: 10),
       ],
