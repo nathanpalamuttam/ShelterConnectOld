@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/models/user.dart';
 import 'package:provider/provider.dart';
 
-
 import '../home_page.dart';
+import '../../models/user.dart';
 import 'navigation_tab.dart';
 
 class ShelterDashboard extends StatefulWidget with NavigationTab {
@@ -38,12 +37,12 @@ class _ShelterDashboardState extends State<ShelterDashboard> {
                   DashboardButton3('Past Deliveries'),
                 ],
               ),
-              SizedBox(height: 500,),
+              SizedBox(
+                height: 500,
+              ),
             ],
           ),
-
-        )
-    );
+        ));
   }
 }
 
@@ -68,9 +67,9 @@ class PendingDelivery extends StatelessWidget {
                 )),
             Container(
                 child: Text(
-                  " Can of Beans" + "#" + "57124618",
-                  textAlign: TextAlign.center,
-                ))
+              " Can of Beans" + "#" + "57124618",
+              textAlign: TextAlign.center,
+            ))
           ],
         ));
   }
@@ -104,26 +103,23 @@ class DashboardButton1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-        bottom: -45,
-          child: Container(
-          child: Text(title, style: TextStyle(
-          fontSize: 20,
-        )),
-    height: 100,
-    width: MediaQuery.of(context).size.width - 40,
-    padding: EdgeInsets.all(10),
-    decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.all(Radius.circular(28)),
-    boxShadow: [
-    BoxShadow(
-    color: Colors.black12,
-    spreadRadius: 5.5,
-    blurRadius: 5.5,
-    )
-    ]
-    ),
-    ),
+      bottom: -45,
+      child: Container(
+        child: Text(title,
+            style: TextStyle(
+              fontSize: 20,
+            )),
+        height: 100,
+        width: MediaQuery.of(context).size.width - 40,
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5)), boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            spreadRadius: 5.5,
+            blurRadius: 5.5,
+          )
+        ]),
+      ),
     );
   }
 }
@@ -138,28 +134,21 @@ class DashboardButton2 extends StatelessWidget {
     return Positioned(
         bottom: -160,
         child: Container(
-          child: Text(title, style: TextStyle(
-            fontSize: 20,
-          )),
+          child: Text(title,
+              style: TextStyle(
+                fontSize: 20,
+              )),
           height: 100,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width - 40,
+          width: MediaQuery.of(context).size.width - 40,
           padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(28)),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black12,
-                  spreadRadius: 5.5,
-                  blurRadius: 5.5,
-                )
-              ]
-          ),
-        )
-    );
+          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5)), boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              spreadRadius: 5.5,
+              blurRadius: 5.5,
+            )
+          ]),
+        ));
   }
 }
 
@@ -173,28 +162,21 @@ class DashboardButton3 extends StatelessWidget {
     return Positioned(
         bottom: -275,
         child: Container(
-          child: Text(title, style: TextStyle(
-            fontSize: 20,
-          )),
+          child: Text(title,
+              style: TextStyle(
+                fontSize: 20,
+              )),
           height: 100,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width - 40,
+          width: MediaQuery.of(context).size.width - 40,
           padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(28)),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black12,
-                  spreadRadius: 5.5,
-                  blurRadius: 5.5,
-                )
-              ]
-          ),
-        )
-    );
+          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5)), boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              spreadRadius: 5.5,
+              blurRadius: 5.5,
+            )
+          ]),
+        ));
   }
 }
 
@@ -206,10 +188,9 @@ class BackGroundColor extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(10),
-            bottomRight: Radius.circular(10),
-          )
-      ),
+            bottomLeft: Radius.circular(5),
+            bottomRight: Radius.circular(5),
+          )),
     );
   }
 }
@@ -225,27 +206,28 @@ class GreetingsInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              getGreeting(Provider
-                  .of<User>(context, listen: false)
-                  .name),
+              getGreeting(Provider.of<User>(context, listen: false).name),
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 26.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10,),
-            Text('Its a Great Day to Collect Donations!',
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Its a Great Day to Collect Donations!',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
-              ),)
-          ],)
-    );
+              ),
+            )
+          ],
+        ));
   }
 }
-
 
 //Padding(
 //padding: const EdgeInsets.all(30.0),
