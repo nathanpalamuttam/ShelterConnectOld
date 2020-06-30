@@ -21,28 +21,32 @@ class _ShelterDashboardState extends State<ShelterDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blue,
-        body: SingleChildScrollView(
+      backgroundColor: Color(0xFFDAE1EC),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 22.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Stack(
-                alignment: AlignmentDirectional.topCenter,
-                overflow: Overflow.visible,
-                children: <Widget>[
-                  BackGroundColor(),
-                  GreetingsInfo(),
-                  DashboardButton1('Pending Deliveries'),
-                  DashboardButton2('Requests'),
-                  DashboardButton3('Past Deliveries'),
-                ],
-              ),
+              GreetingsInfo(),
               SizedBox(
-                height: 500,
+                height: 40,
               ),
+              DashboardButton1('Pending Deliveries'),
+              SizedBox(
+                height: 20,
+              ),
+              DashboardButton2('Requests'),
+              SizedBox(
+                height: 20,
+              ),
+              DashboardButton3('Past Deliveries'),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
 
@@ -102,24 +106,21 @@ class DashboardButton1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      bottom: -45,
-      child: Container(
-        child: Text(title,
-            style: TextStyle(
-              fontSize: 20,
-            )),
-        height: 100,
-        width: MediaQuery.of(context).size.width - 40,
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5)), boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            spreadRadius: 5.5,
-            blurRadius: 5.5,
-          )
-        ]),
-      ),
+    return Container(
+      child: Text(title,
+          style: TextStyle(
+            fontSize: 20,
+          )),
+      height: 170,
+      width: MediaQuery.of(context).size.width - 40,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5)), boxShadow: [
+        BoxShadow(
+          color: Colors.black12,
+          spreadRadius: 2.5,
+          blurRadius: 2.5,
+        )
+      ]),
     );
   }
 }
@@ -131,24 +132,22 @@ class DashboardButton2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-        bottom: -160,
-        child: Container(
-          child: Text(title,
-              style: TextStyle(
-                fontSize: 20,
-              )),
-          height: 100,
-          width: MediaQuery.of(context).size.width - 40,
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5)), boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              spreadRadius: 5.5,
-              blurRadius: 5.5,
-            )
-          ]),
-        ));
+    return Container(
+      child: Text(title,
+          style: TextStyle(
+            fontSize: 20,
+          )),
+      height: 170,
+      width: MediaQuery.of(context).size.width - 40,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5)), boxShadow: [
+        BoxShadow(
+          color: Colors.black12,
+          spreadRadius: 2.5,
+          blurRadius: 2.5,
+        )
+      ]),
+    );
   }
 }
 
@@ -159,38 +158,21 @@ class DashboardButton3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-        bottom: -275,
-        child: Container(
-          child: Text(title,
-              style: TextStyle(
-                fontSize: 20,
-              )),
-          height: 100,
-          width: MediaQuery.of(context).size.width - 40,
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5)), boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              spreadRadius: 5.5,
-              blurRadius: 5.5,
-            )
-          ]),
-        ));
-  }
-}
-
-class BackGroundColor extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
     return Container(
-      height: 230.0,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(5),
-            bottomRight: Radius.circular(5),
+      child: Text(title,
+          style: TextStyle(
+            fontSize: 20,
           )),
+      height: 170,
+      width: MediaQuery.of(context).size.width - 40,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5)), boxShadow: [
+        BoxShadow(
+          color: Colors.black12,
+          spreadRadius: 2.5,
+          blurRadius: 2.5,
+        )
+      ]),
     );
   }
 }
@@ -198,34 +180,14 @@ class BackGroundColor extends StatelessWidget {
 class GreetingsInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-        left: 20.0,
-        bottom: 150.0,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              getGreeting(Provider.of<User>(context, listen: false).name),
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 26.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              'Its a Great Day to Collect Donations!',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            )
-          ],
-        ));
+    return Text(
+      getGreeting(Provider.of<User>(context, listen: false).name),
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 26.0,
+        fontWeight: FontWeight.bold,
+      ),
+    );
   }
 }
 

@@ -24,9 +24,9 @@ class _ShelterNavigationPageState extends State<ShelterNavigationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFDAE1EC),
         elevation: 0,
-        iconTheme: new IconThemeData(color: Colors.black),
+        iconTheme: new IconThemeData(color: Colors.black,),
       ),
       drawer: Drawer(
         child: Container(

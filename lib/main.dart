@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/shelter/shelter_create_request_page.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/shelter_navigation',
+        initialRoute: '/welcome',
         routes: {
           '/volunteer_signup': (_) => VolunteerSignupPage(),
           '/shelter_signup': (_) => ShelterSignupPage(),
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           '/settings': (_) => SettingsPage(),
           '/shelter': (_) => ShelterRoute(),
           '/shelter_profile': (_) => ShelterProfile(),
+          '/shelter_create_requests': (_) => CreateRequest(),
           '/shelter_navigation': (_) => ShelterNavigationPage(),
           '/signup': (_) => SignupPage(),
           '/volunteer_confirmation': (_) => VolunteerConfirmation(),
